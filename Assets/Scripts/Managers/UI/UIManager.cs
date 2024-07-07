@@ -32,17 +32,17 @@ void OnDisable()
 
 void Subscribe()
 {
-    CoreGameSignals.Instance.onGameStart += OnGameStart;
-    CoreGameSignals.Instance.onGamePause += OnGamePause;
-    CoreGameSignals.Instance.onLevelRestart += OnLevelRestart;
-    CoreGameSignals.Instance.onLevelSuccesfull += OnLevelSuccesfull;
-    CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
+    
 
     CoreUISignals.Instance.onGameStartPanel += OnGameStart;
+    CoreUISignals.Instance.onGamePausePanel += OnGamePause;
+    CoreUISignals.Instance.onLevelFailedPanel += OnLevelFailed;
+    CoreUISignals.Instance.onLevelSuccesfullPanel += OnLevelSuccesfull;
+    CoreUISignals.Instance.onLevelRestartPanel += OnLevelRestart;
 
 }
 
-    private void OnLevelFailed()
+    private void OnLevelRestart()
     {
         throw new NotImplementedException();
     }
@@ -52,29 +52,33 @@ void Subscribe()
         throw new NotImplementedException();
     }
 
-    private void OnLevelRestart()
+    private void OnLevelFailed()
     {
         throw new NotImplementedException();
     }
 
     private void OnGamePause()
     {
-        throw new NotImplementedException();
+        Debug.Log($"Game Pause");
     }
 
-    public void OnGameStart()
+    private void OnGameStart()
     {
         Debug.Log($"Game Start");
         mainPanel.SetActive(false);
     }
 
-    void UnSubscribe()
+  
+
+
+
+void UnSubscribe()
 {
-    CoreGameSignals.Instance.onGameStart -= OnGameStart;
-    CoreGameSignals.Instance.onGamePause -= OnGamePause;
-    CoreGameSignals.Instance.onLevelRestart -= OnLevelRestart;
-    CoreGameSignals.Instance.onLevelSuccesfull -= OnLevelSuccesfull;
-    CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
+    CoreUISignals.Instance.onGameStartPanel -= OnGameStart;
+    CoreUISignals.Instance.onGamePausePanel -= OnGamePause;
+    CoreUISignals.Instance.onLevelFailedPanel -= OnLevelFailed;
+    CoreUISignals.Instance.onLevelSuccesfullPanel -= OnLevelSuccesfull;
+    CoreUISignals.Instance.onLevelRestartPanel -= OnLevelRestart;
 }
 
 

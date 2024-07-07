@@ -38,11 +38,6 @@ void Awake()
 
 
 
-public void StartBut()
-{
-    onGameStartPanel.Invoke();
-}
-
 
 
 

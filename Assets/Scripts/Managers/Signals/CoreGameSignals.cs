@@ -30,7 +30,7 @@ public UnityAction onGamePause=delegate{};
 public UnityAction onLevelRestart=delegate{};
 public UnityAction onLevelSuccesfull=delegate{};
 public UnityAction onLevelFailed=delegate{};
-
+public UnityAction onPlayerUpgrade=delegate{};
 
 
 

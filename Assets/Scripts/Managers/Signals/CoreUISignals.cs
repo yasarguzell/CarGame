@@ -10,11 +10,17 @@ public class CoreUISignals : MonoBehaviour
 
 
 
-public UnityAction onGameStartPanel=delegate{};
-public UnityAction onGamePausePanel=delegate{};
+public UnityAction onStartPanel=delegate{};
+public UnityAction onPausePanel=delegate{};
 public UnityAction onLevelFailedPanel=delegate{};
 public UnityAction onLevelSuccesfullPanel=delegate{};
 public UnityAction onLevelRestartPanel=delegate{};
+
+public UnityAction onUpdateTree=delegate{};
+public UnityAction onScoreAdded=delegate{};
+public UnityAction onScoreReset=delegate{};
+public UnityAction onScoreRemoved=delegate{};
+
 
 
 

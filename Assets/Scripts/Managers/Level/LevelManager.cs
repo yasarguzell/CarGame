@@ -7,17 +7,19 @@ public class LevelManager : MonoBehaviour
 
 {
 
-    float levelIndex;
    void Start()
    {
-    CoreGameSignals.Instance.onGameStart += OnGameStart;
+    CoreGameSignals.Instance.onLevelInitialized += OnLevelInitialized;
   
     
    }
 
-    private void OnGameStart()
+    private void OnLevelInitialized(byte _levelIndex)
     {
-        Debug.Log($"Level load");
-        GameObject level = Instantiate(Resources.Load<GameObject>($"Prefabs/LevelPrefabs/level {levelIndex}"));
+         Debug.Log($"Level load");
+        GameObject level = Instantiate(Resources.Load<GameObject>($"Prefabs/LevelPrefabs/level {_levelIndex}"));
     }
+
+   
+  
 }

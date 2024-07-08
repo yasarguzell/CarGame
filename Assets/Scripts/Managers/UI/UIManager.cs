@@ -5,12 +5,8 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-   [SerializeField] GameObject mainPanel;
-   [SerializeField] GameObject pausePanel;
-   [SerializeField] GameObject levelFailedPanel;
-   [SerializeField] GameObject levelSuccesfullPanel;
-   
-
+  
+byte currentLevel=0;
 void Start()
 {
     Subscribe();
@@ -26,60 +22,53 @@ void OnDisable()
 }
 
 
-
-
-
-
 void Subscribe()
 {
-    
+   CoreGameSignals.Instance.onLevelFailed += LevelFailed;
+   CoreGameSignals.Instance.onLevelSuccesfull += LevelSuccesfull;
+   CoreGameSignals.Instance.onLevelRestart += LevelRestart;
+}
 
-    CoreUISignals.Instance.onGameStartPanel += OnGameStart;
-    CoreUISignals.Instance.onGamePausePanel += OnGamePause;
-    CoreUISignals.Instance.onLevelFailedPanel += OnLevelFailed;
-    CoreUISignals.Instance.onLevelSuccesfullPanel += OnLevelSuccesfull;
-    CoreUISignals.Instance.onLevelRestartPanel += OnLevelRestart;
+    private void LevelRestart()
+   {
+    CoreUISignals.Instance.onLevelRestartPanel?.Invoke();
+    }
+
+    private void LevelSuccesfull()
+    {
+        CoreUISignals.Instance.onLevelSuccesfullPanel?.Invoke();
+       
+    }
+
+    private void LevelFailed()
+    {
+        CoreUISignals.Instance.onLevelFailedPanel?.Invoke();
+    }
+
+    public void GameStart()
+{
+    CoreGameSignals.Instance.onLevelInitialized?.Invoke(currentLevel);
+    CoreUISignals.Instance.onStartPanel?.Invoke(); // close panel
 
 }
 
-    private void OnLevelRestart()
-    {
-        throw new NotImplementedException();
-    }
-
-    private void OnLevelSuccesfull()
-    {
-        throw new NotImplementedException();
-    }
-
-    private void OnLevelFailed()
-    {
-        throw new NotImplementedException();
-    }
-
-    private void OnGamePause()
-    {
-        Debug.Log($"Game Pause");
-    }
-
-    private void OnGameStart()
-    {
-        Debug.Log($"Game Start");
-        mainPanel.SetActive(false);
-    }
-
-  
+public void GamePause()
+{
+    CoreGameSignals.Instance.onGamePause?.Invoke();
+    CoreUISignals.Instance.onPausePanel?.Invoke();
+}
 
 
 
 void UnSubscribe()
 {
-    CoreUISignals.Instance.onGameStartPanel -= OnGameStart;
-    CoreUISignals.Instance.onGamePausePanel -= OnGamePause;
-    CoreUISignals.Instance.onLevelFailedPanel -= OnLevelFailed;
-    CoreUISignals.Instance.onLevelSuccesfullPanel -= OnLevelSuccesfull;
-    CoreUISignals.Instance.onLevelRestartPanel -= OnLevelRestart;
+  
+   CoreGameSignals.Instance.onLevelFailed -= LevelFailed;
+   CoreGameSignals.Instance.onLevelSuccesfull -= LevelSuccesfull;
+   CoreGameSignals.Instance.onLevelRestart -= LevelRestart;
 }
+
+
 
 
 }

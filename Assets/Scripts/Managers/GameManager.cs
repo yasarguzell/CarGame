@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+/*
 public static GameManager Instance { get; set; }
 
 void Awake()
@@ -42,4 +42,10 @@ void Awake()
     CoreGameSignals.Instance.onLevelSuccesfull?.Invoke();
     CoreUISignals.Instance.onLevelSuccesfullPanel?.Invoke();
   }
+
+  public void AddScore()
+  {
+    CoreUISignals.Instance.onScoreAdded?.Invoke();
+  }
+  */
 }

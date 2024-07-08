@@ -39,10 +39,10 @@ public class UIEventSubscriber : MonoBehaviour
         switch (type)
         {
             case UIEventSubscriptionTypes.Play:
-                button.onClick.AddListener(GameManager.Instance.GameStart); 
+                button.onClick.AddListener(_manager.GameStart); 
                 break;
             case UIEventSubscriptionTypes.Pause:
-                button.onClick.AddListener(GameManager.Instance.GamePause);
+                button.onClick.AddListener(_manager.GamePause);
                 break;
           
         }
@@ -53,10 +53,10 @@ public class UIEventSubscriber : MonoBehaviour
         switch (type)
         {
             case UIEventSubscriptionTypes.Play:
-                button.onClick.RemoveListener(GameManager.Instance.GameStart);
+                button.onClick.RemoveListener(_manager.GameStart);
                 break;
             case UIEventSubscriptionTypes.Pause:
-                button.onClick.RemoveListener(GameManager.Instance.GamePause);
+                button.onClick.RemoveListener(_manager.GamePause);
                 break;
            
         }

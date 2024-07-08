@@ -34,7 +34,7 @@ public UnityAction onPlayerUpgrade=delegate{};
 
 
 
-public UnityAction onLevelInitialized=delegate{};
+public UnityAction<byte> onLevelInitialized=delegate{};
 public UnityAction onLevelCleared=delegate{};
 
 

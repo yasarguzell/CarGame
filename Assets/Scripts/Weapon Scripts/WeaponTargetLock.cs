@@ -2,30 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponTargetLock : MonoBehaviour
+public class WeaponTargetLock : Weapon
 {
+    /*Component Properties*/
     [System.Serializable]
     public struct Component
     {
         public Transform weaponComponent;
         public Vector3 freeAxis;
     }
+    /*Component Properties*/
 
-
+    //
     [Header("Weapon Components")]
     [SerializeField] List<Component> componentList = new List<Component>();
     [Space]
-    [Header("Weapon Properties")]
+    [Header("Track Properties")]
     [SerializeField] Transform targetsParent;
     [SerializeField] float rotationSpeed = 1f;
-
-    private Transform targetTransform;
-
-    void Start()
-    {
-     
-    }
-
+    [SerializeField][Tooltip("How much closer the new target cannidate neets to be for target change.")] float differenceThreshold = 1f;
+    //
 
     void Update()
     {
@@ -67,10 +63,9 @@ public class WeaponTargetLock : MonoBehaviour
 
             float currentDistance = Vector3.Distance(this.transform.position, targetTransform.position);
             float testDistance = Vector3.Distance(this.transform.position, tempChild.position);
-            if (currentDistance > testDistance)
+            if (currentDistance > testDistance + differenceThreshold)
             {
                 targetTransform = tempChild;
-                Debug.Log(targetTransform.name);
             }
         }
     }

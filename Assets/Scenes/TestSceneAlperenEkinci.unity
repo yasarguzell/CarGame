@@ -1116,6 +1116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c9da51035c61a41b2e23fefa39ece7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTransform: {fileID: 0}
   componentList:
   - weaponComponent: {fileID: 637817516}
     freeAxis: {x: 0, y: 1, z: 0}
@@ -1136,10 +1137,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b51f60734b66c4fb16de0093b82890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTransform: {fileID: 1230556618}
   projectile: {fileID: 6607733613316057672, guid: 2f9c14796e259074caffcf924ca3aa25, type: 3}
   exitPosition: {fileID: 697365417}
   fireRate: 5
-  exitVelocity: 40
+  burstCount: 5
+  exitVelocity: 100
   exitVelocityRandomness: 0.402
   directionRandomness: 0.034
 --- !u!1001 &928671644
@@ -1148,7 +1151,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1230556618}
+    m_TransformParent: {fileID: 1095494916}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
       propertyPath: m_LocalScale.x
@@ -1205,6 +1208,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
       propertyPath: m_Name
       value: FloatingTarget (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
       propertyPath: m_TagString
@@ -1445,6 +1452,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 967371702}
+  - {fileID: 928671645}
+  - {fileID: 1127399392}
   - {fileID: 1230556618}
   - {fileID: 2135599462}
   m_Father: {fileID: 0}
@@ -1455,7 +1464,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1230556618}
+    m_TransformParent: {fileID: 1095494916}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
       propertyPath: m_LocalScale.x
@@ -1487,7 +1496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1495,7 +1504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1512,6 +1521,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
       propertyPath: m_Name
       value: FloatingTarget (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e1cbe7aa64e74e346969fdea569c5e94, type: 3}
       propertyPath: m_TagString
@@ -1560,8 +1573,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1795595876}
-  - {fileID: 928671645}
-  - {fileID: 1127399392}
   m_Father: {fileID: 1095494916}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1552261782 stripped
@@ -2053,7 +2064,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

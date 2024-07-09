@@ -8,31 +8,42 @@ public class WeaponFire : Weapon
     [SerializeField] Transform projectile;
     [SerializeField] Transform exitPosition;
     [SerializeField][Tooltip("Per Second")] float fireRate = 1f;
+    [SerializeField] [Tooltip("Per Firing")] float burstCount = 1f;
     [SerializeField] float exitVelocity = 100f;
     [SerializeField][Range(0.0f, 1.0f)] float exitVelocityRandomness = 0f;
     [SerializeField][Range(0.0f, 1.0f)] float directionRandomness = 0f;
 
+    private WeaponTargetLock weaponTargetLock;
     private bool isFireOn = true;
     private float lastFireTime = 0f;
 
     void Start()
     {
-        StartCoroutine(FireCoroutine());
-    }
+        weaponTargetLock = this.transform.GetComponent<WeaponTargetLock>();
 
-    void Update()
-    {
-        
+        StartCoroutine(FireCoroutine());
     }
 
     void Fire()
     {
         lastFireTime = Time.time;
 
-        Transform projectileTransform = GameObject.Instantiate(projectile, exitPosition.position, exitPosition.rotation);
-        Rigidbody projectileRigidbody = projectileTransform.GetComponent<Rigidbody>();
+        Burst();
+    }
 
-        projectileRigidbody.velocity = exitPosition.forward * exitVelocity + exitPosition.forward * exitVelocity * Random.Range(-exitVelocityRandomness, exitVelocityRandomness);
+    void Burst()
+    {
+        for (int i = 0; i < burstCount; i++)
+        {
+            Transform projectileTransform = GameObject.Instantiate(projectile, exitPosition.position, exitPosition.rotation);
+            Rigidbody projectileRigidbody = projectileTransform.GetComponent<Rigidbody>();
+            Projectile projectileP = projectileTransform.GetComponent<Projectile>();
+            projectileP.targetTransform = weaponTargetLock.targetTransform;
+            projectileP.spawnPointTransform = exitPosition;
+
+            Vector3 dir = exitPosition.forward + new Vector3(Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness));
+            projectileRigidbody.velocity = dir * exitVelocity + dir * exitVelocity * Random.Range(-exitVelocityRandomness, exitVelocityRandomness);
+        }
     }
 
     IEnumerator FireCoroutine()
@@ -41,7 +52,7 @@ public class WeaponFire : Weapon
         {
             bool isOnCooldown = (Time.time - lastFireTime) < (1 / fireRate);
 
-            if (!isOnCooldown)
+            if (!isOnCooldown && weaponTargetLock.targetTransform)
             {
                 Fire();
             }

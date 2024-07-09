@@ -5,6 +5,6 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     //
-    protected Transform targetTransform;
+    public Transform targetTransform;
     //
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6911795914343437449}
   - component: {fileID: 8115653412585982004}
   m_Layer: 0
-  m_Name: Projectile_1
+  m_Name: Projectile_Guided
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6607733613316057672}
@@ -117,8 +117,9 @@ GameObject:
   - component: {fileID: 1665312861414462853}
   - component: {fileID: 3980345195321539026}
   - component: {fileID: -8006344171113439416}
+  - component: {fileID: -7155299497003062811}
   m_Layer: 0
-  m_Name: Projectile_1
+  m_Name: Projectile_Granade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +151,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -175,7 +176,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7662349398542856186}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -188,7 +189,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1fbd853234f8b934399b181800e5cdf0, type: 2}
+  - {fileID: 2100000, guid: f0a25e948f6f7d442838139cb7dbb282, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -209,11 +210,11 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.05
+  m_Time: 0.1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -292,4 +293,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d4ccf524aa2734ba30fd34395e3c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 4
+  seconds: 2
+--- !u!114 &-7155299497003062811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662349398542856186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58aed6520f01c564ba3c4b06e730e2f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

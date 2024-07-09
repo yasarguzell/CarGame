@@ -6,6 +6,7 @@ TagManager:
   tags:
   - UpdatePoint
   - Enemy
+  - FuelTank
   layers:
   - Default
   - TransparentFX

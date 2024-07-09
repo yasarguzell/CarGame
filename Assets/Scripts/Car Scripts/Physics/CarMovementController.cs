@@ -68,6 +68,8 @@ public class CarMovementController : MonoBehaviour
     {
         _velocity = _rb.velocity.magnitude;
 
+        _rb.drag = _isGrounded ? 1 : 0;
+
         if (!_isGrounded || Mathf.Abs(_input.magnitude) < Mathf.Epsilon)
             return;
 
@@ -107,11 +109,11 @@ public class CarMovementController : MonoBehaviour
 
     private void CheckIsGrounded(out bool isGrounded)
     {
-        isGrounded = Physics.Raycast(_transform.position + _transform.up * 0.5f, -_transform.up, 0.53f);
+        isGrounded = Physics.Raycast(_transform.position + _transform.up * 0.5f, -_transform.up, 1f);
         if (isGrounded)
-            Debug.DrawRay(_transform.position + _transform.up * 0.5f, -_transform.up, Color.green, 0.53f);
+            Debug.DrawRay(_transform.position + _transform.up * 0.5f, -_transform.up, Color.green, 1f);
         else
-            Debug.DrawRay(_transform.position + _transform.up * 0.5f, -_transform.up, Color.red, 0.53f);
+            Debug.DrawRay(_transform.position + _transform.up * 0.5f, -_transform.up, Color.red, 1f);
     }
 
     void ApplySteeringRotationToWheelMeshes()

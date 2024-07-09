@@ -9,7 +9,7 @@ public class CarPhysicsSO : ScriptableObject
     public float AccelerationForce;
     public float MaxSpeed;
 
-    [Header("Steering Settings")]
+    [Header("Steering Settings - Drift")]
     public float SteeringConst;
     public AnimationCurve TurnSpeedCurve;
 }

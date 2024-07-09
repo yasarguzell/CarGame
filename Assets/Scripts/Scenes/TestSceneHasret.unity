@@ -395,7 +395,7 @@ Transform:
   m_GameObject: {fileID: 78967954}
   serializedVersion: 2
   m_LocalRotation: {x: 0.4135488, y: -0.0014309584, z: 0.001117171, w: 0.9104802}
-  m_LocalPosition: {x: 21.447645, y: 8.650589, z: -122.40518}
+  m_LocalPosition: {x: 21.052034, y: 8.4512615, z: -123.26383}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -447,11 +447,12 @@ GameObject:
   - component: {fileID: 98051339}
   - component: {fileID: 98051344}
   - component: {fileID: 98051343}
-  - component: {fileID: 98051340}
+  - component: {fileID: 98051348}
   - component: {fileID: 98051342}
   - component: {fileID: 98051341}
   - component: {fileID: 98051345}
   - component: {fileID: 98051346}
+  - component: {fileID: 98051347}
   m_Layer: 0
   m_Name: CAR
   m_TagString: Player
@@ -468,7 +469,7 @@ Transform:
   m_GameObject: {fileID: 98051338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.008726558, z: 0, w: 0.999962}
-  m_LocalPosition: {x: 21.430828, y: 1.12, z: -115.82567}
+  m_LocalPosition: {x: 21.035217, y: 0.9206734, z: -116.68432}
   m_LocalScale: {x: 1, y: 0.5, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -478,26 +479,6 @@ Transform:
   - {fileID: 1359932868}
   m_Father: {fileID: 1115557507}
   m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
---- !u!114 &98051340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98051338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1896fda16c03e4c7b89268e81428a157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _joystick: {fileID: 1045188497}
-  SpringRestPosition: 0.6
-  SpringConstant: 10000
-  DampingConstant: 1000
-  TireGrip: 0.9
-  TireMass: 40
-  CarTopSpeed: 1000
-  ForwardForce: 3000
 --- !u!65 &98051341
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -527,9 +508,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98051338}
   serializedVersion: 4
-  m_Mass: 700
+  m_Mass: 2000
   m_Drag: 1
-  m_AngularDrag: 0.2
+  m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -539,7 +520,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 0
+  m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -627,6 +608,50 @@ MonoBehaviour:
   speedParticle: {fileID: 1359932870}
   speedThreshold: 5
   maxEmissionRate: 50
+--- !u!114 &98051347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98051338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75dff57ba81784a6caea1acf3b0daf4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _carPhysics: {fileID: 11400000, guid: f4f35c766abc241b4af2e19a16fa54a5, type: 2}
+  _velocity: 0
+  _accelerationForce: 0
+  _maxSpeed: 0
+  _steeringConst: 0
+  TurnSpeedCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  Joystick: {fileID: 1045188497}
+  _rearWheels:
+  - {fileID: 634643159}
+  - {fileID: 2034235978}
+  _frontWheels:
+  - {fileID: 961342889}
+  - {fileID: 200599627}
+--- !u!114 &98051348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98051338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353056cf19686064c96b12c0c65780b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vehicleTransform: {fileID: 98051339}
+  odometerText: {fileID: 819726264}
 --- !u!1001 &109513353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -884,6 +909,7 @@ RectTransform:
   m_Children:
   - {fileID: 1045188496}
   - {fileID: 533713246}
+  - {fileID: 819726263}
   m_Father: {fileID: 1427356224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -998,9 +1024,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b334caeef014c17a5603a40f2182df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carPhysicsController: {fileID: 98051340}
-  _joystick: {fileID: 1045188497}
-  _isFrontWheel: 1
 --- !u!1001 &223528097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1620,9 +1643,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b334caeef014c17a5603a40f2182df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carPhysicsController: {fileID: 98051340}
-  _joystick: {fileID: 1045188497}
-  _isFrontWheel: 0
 --- !u!4 &659965077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4969091116097092, guid: 37c3590bcdbc7c648ac2969b6b7a08a3, type: 3}
@@ -2043,6 +2063,85 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 594050416}
   m_SourcePrefab: {fileID: 100100000, guid: 8895dea04dd3bd942a9039e333512a11, type: 3}
+--- !u!1 &819726262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819726263}
+  - component: {fileID: 819726265}
+  - component: {fileID: 819726264}
+  m_Layer: 0
+  m_Name: Text (Legacy) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &819726263
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819726262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.41, y: 2.41, z: 2.41}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 183799714}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -891, y: 317.5}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &819726264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819726262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 24
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &819726265
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819726262}
+  m_CullTransparentMesh: 1
 --- !u!1 &830950991
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,7 +2170,7 @@ Transform:
   m_GameObject: {fileID: 830950991}
   serializedVersion: 2
   m_LocalRotation: {x: 0.4135488, y: -0.0014309584, z: 0.001117171, w: 0.9104802}
-  m_LocalPosition: {x: 21.447645, y: 8.650589, z: -122.40518}
+  m_LocalPosition: {x: 21.052034, y: 8.4512615, z: -123.26383}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2365,9 +2464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b334caeef014c17a5603a40f2182df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carPhysicsController: {fileID: 98051340}
-  _joystick: {fileID: 1045188497}
-  _isFrontWheel: 1
 --- !u!1001 &1006163439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4304,9 +4400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b334caeef014c17a5603a40f2182df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carPhysicsController: {fileID: 98051340}
-  _joystick: {fileID: 1045188497}
-  _isFrontWheel: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

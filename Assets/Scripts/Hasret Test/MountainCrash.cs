@@ -15,7 +15,6 @@ public class MountainCrash : MonoBehaviour
         {
             _fuelSystem.currentFuel = 0; //aracın yakıtı bitti
             _particleSystem.Play(); // patlama efecti çıkar
-            particleSystem_.startDelay = 2;
             particleSystem_.Play();
         }
     }

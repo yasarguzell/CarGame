@@ -28,7 +28,14 @@ public UnityAction<byte> onLevelInitialized=delegate{};
 public UnityAction onGamePause=delegate{};
 public UnityAction onLevelRestart=delegate{};
 public UnityAction onLevelFailed=delegate{};
-public UnityAction<float,float> onPlayerUpgrade=delegate{};
+
+
+
+
+
+public UnityAction<int> onPlayerUpgrade=delegate{};
+public UnityAction<float> onPlayerUpgradeSpeed=delegate{};
+
 
 
 

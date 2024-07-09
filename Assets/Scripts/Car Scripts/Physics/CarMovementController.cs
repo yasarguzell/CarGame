@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CarMovementController : MonoBehaviour
@@ -42,6 +43,18 @@ public class CarMovementController : MonoBehaviour
         right,
         frw
     }
+    
+    void Start()
+    {
+        CoreGameSignals.Instance.onPlayerUpgradeSpeed += OnPlayerSpeedUpgrade;
+    }
+
+    private void OnPlayerSpeedUpgrade(float value)
+    {
+        _maxSpeed += value;
+    }
+
+   
 
     private void Awake()
     {
@@ -62,6 +75,7 @@ public class CarMovementController : MonoBehaviour
         CheckIsGrounded(out _isGrounded);
 
         StopRotationOnZAxis();
+        Debug.Log(_accelerationForce);
     }
 
     void FixedUpdate()

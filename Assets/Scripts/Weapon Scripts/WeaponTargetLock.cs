@@ -23,6 +23,14 @@ public class WeaponTargetLock : Weapon
     [SerializeField][Tooltip("How much closer the new target cannidate neets to be for target change.")] float differenceThreshold = 1f;
     //
 
+    private void Start()
+    {
+        if (!targetsParent)
+        {
+            targetsParent = GameObject.Find("Enemies").transform;
+        }
+    }
+
     void Update()
     {
         FindClosestTrackTarget();

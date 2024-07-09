@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,17 +23,12 @@ void Awake()
 
 
 
-public UnityAction onGameStart=delegate{};
+public UnityAction<byte> onLevelInitialized=delegate{};
+//public UnityAction onGameStart=delegate{};
 public UnityAction onGamePause=delegate{};
 public UnityAction onLevelRestart=delegate{};
-public UnityAction onLevelSuccesfull=delegate{};
 public UnityAction onLevelFailed=delegate{};
-public UnityAction onPlayerUpgrade=delegate{};
-
-
-
-public UnityAction<byte> onLevelInitialized=delegate{};
-public UnityAction onLevelCleared=delegate{};
+public UnityAction<float,float> onPlayerUpgrade=delegate{};
 
 
 

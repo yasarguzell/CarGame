@@ -1,44 +1,71 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-  
-byte currentLevel=0;
-void Start()
-{
-    Subscribe();
-}
-void OnEnable()
-{
-    //Subscribe();
-}
+    [SerializeField] GameObject menuPanel;
+    [SerializeField] GameObject gamePanel;
+    [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject failPanel;
+    [SerializeField] GameObject upgradePanel;
+    byte currentLevel = 0;
+    void Start()
+    {
+        Subscribe();
+    }
+    void OnEnable()
+    {
+        //Subscribe();
+    }
 
-void OnDisable()
-{
-   // UnSubscribe();
-}
+    void OnDisable()
+    {
+        // UnSubscribe();
+    }
 
 
-void Subscribe()
-{
-   CoreGameSignals.Instance.onLevelFailed += LevelFailed;
-   CoreGameSignals.Instance.onLevelSuccesfull += LevelSuccesfull;
-   CoreGameSignals.Instance.onLevelRestart += LevelRestart;
-}
+    void Subscribe()
+    {
+        CoreGameSignals.Instance.onLevelFailed += LevelFailed;
+        CoreGameSignals.Instance.onLevelRestart += LevelRestart;
+        
+
+        CoreUISignals.Instance.onStartPanel += onStartPanel;
+        CoreUISignals.Instance.onPausePanel += onPausePanel;
+        CoreUISignals.Instance.onLevelFailedPanel += onLevelFailedPanel;
+        CoreUISignals.Instance.onUpgradePanel += onUpgradePanel;
+    }
+
+
+
+    private void onUpgradePanel()
+    {
+       upgradePanel.gameObject.SetActive(true);
+    }
+
+    private void onLevelFailedPanel()
+    {
+        failPanel.gameObject.SetActive(true);
+    }
+
+    private void onPausePanel()
+    {
+        pausePanel.gameObject.SetActive(true);
+    }
+
+    private void onStartPanel()
+    {
+        menuPanel.SetActive(false);
+        gamePanel.SetActive(true);
+     
+    }
 
     private void LevelRestart()
-   {
-    CoreUISignals.Instance.onLevelRestartPanel?.Invoke();
+    {
+        CoreUISignals.Instance.onLevelRestartPanel?.Invoke();
     }
 
-    private void LevelSuccesfull()
-    {
-        CoreUISignals.Instance.onLevelSuccesfullPanel?.Invoke();
-       
-    }
+  
 
     private void LevelFailed()
     {
@@ -46,27 +73,68 @@ void Subscribe()
     }
 
     public void GameStart()
-{
-    CoreGameSignals.Instance.onLevelInitialized?.Invoke(currentLevel);
-    CoreUISignals.Instance.onStartPanel?.Invoke(); // close panel
+    {
+        CoreGameSignals.Instance.onLevelInitialized?.Invoke(currentLevel);
+        CoreUISignals.Instance.onStartPanel?.Invoke(); // close panel
+    }
 
-}
+    public void GamePause()
+    {
+        CoreGameSignals.Instance.onGamePause?.Invoke();
+        CoreUISignals.Instance.onPausePanel?.Invoke();
+    }
 
-public void GamePause()
-{
-    CoreGameSignals.Instance.onGamePause?.Invoke();
-    CoreUISignals.Instance.onPausePanel?.Invoke();
-}
+    public void GameResume()
+    {
+       pausePanel.gameObject.SetActive(false);
+    }
+
+    public void GameRestart()
+    {
+        CoreGameSignals.Instance.onLevelRestart?.Invoke();
+        CoreGameSignals.Instance.onLevelInitialized?.Invoke(currentLevel);
+
+        pausePanel.gameObject.SetActive(false);
+        failPanel.SetActive(false);
+    }
+    
+
+    public void GameFail()
+    {
+        CoreGameSignals.Instance.onLevelFailed?.Invoke();
+    }
+
+    public void GameUpgrade()
+    {
+      
+       CoreUISignals.Instance.onUpgradePanel?.Invoke();
+
+    }
+
+    public void GameUpgradeOne()
+    {
+         CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(1.5f, 1.5f); // player data upgrade 
+         upgradePanel.SetActive(false);
+    }
+    public void GameUpgradeTwo()
+    {
+         CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(1.5f, 1.5f); // player data upgrade 
+          upgradePanel.SetActive(false);
+    }
+
+    public void GameUpgradeThree()
+    {
+         CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(1.5f, 1.5f); // player data upgrade 
+          upgradePanel.SetActive(false);
+    }
 
 
+    void UnSubscribe()
+    {
 
-void UnSubscribe()
-{
-  
-   CoreGameSignals.Instance.onLevelFailed -= LevelFailed;
-   CoreGameSignals.Instance.onLevelSuccesfull -= LevelSuccesfull;
-   CoreGameSignals.Instance.onLevelRestart -= LevelRestart;
-}
+        CoreGameSignals.Instance.onLevelFailed -= LevelFailed;
+        CoreGameSignals.Instance.onLevelRestart -= LevelRestart;
+    }
 
 
 

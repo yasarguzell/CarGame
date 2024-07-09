@@ -40,6 +40,7 @@ public class WeaponFire : Weapon
             Projectile projectileP = projectileTransform.GetComponent<Projectile>();
             projectileP.targetTransform = weaponTargetLock.targetTransform;
             projectileP.spawnPointTransform = exitPosition;
+            projectileP.thisRigidbody = projectileRigidbody;
 
             Vector3 dir = exitPosition.forward + new Vector3(Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness));
             projectileRigidbody.velocity = dir * exitVelocity + dir * exitVelocity * Random.Range(-exitVelocityRandomness, exitVelocityRandomness);

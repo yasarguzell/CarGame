@@ -14,4 +14,5 @@ public class UpdatePointCollection : MonoBehaviour
             other.gameObject.SetActive(false);
         }
     }
+
 }

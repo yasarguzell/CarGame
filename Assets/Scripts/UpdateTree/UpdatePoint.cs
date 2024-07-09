@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class UpdatePoint : MonoBehaviour
 {
+    public void GetOptions()
+    {
 
+    }
 }

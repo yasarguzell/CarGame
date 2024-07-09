@@ -1725,6 +1725,7 @@ GameObject:
   - component: {fileID: 1838855404}
   - component: {fileID: 1838855403}
   - component: {fileID: 1838855402}
+  - component: {fileID: 1838855406}
   m_Layer: 5
   m_Name: UpdateCanvas
   m_TagString: Untagged
@@ -1815,6 +1816,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1838855406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838855401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8293065dd07d84f913c067f27a2d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1962826022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,6 +1842,7 @@ GameObject:
   - component: {fileID: 1962826025}
   - component: {fileID: 1962826024}
   - component: {fileID: 1962826029}
+  - component: {fileID: 1962826030}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -1962,6 +1976,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1838855401}
+--- !u!114 &1962826030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962826022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073807d2b87538f459e066a5ba82b934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedIndex: 0
+  hpIndex: 0
+  defenseIndex: 0
+  gunDamageIndex: 0
+  gunShootingSpeedIndex: 0
+  chargerCapacityIndex: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-using System;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -8,19 +8,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject failPanel;
     [SerializeField] GameObject upgradePanel;
+    [SerializeField] TMP_Text scoreText;
     byte currentLevel = 0;
-    void Start()
-    {
-        Subscribe();
-    }
+    float initialScore=0;
+   
     void OnEnable()
     {
-        //Subscribe();
+        Subscribe();
     }
 
     void OnDisable()
     {
-        // UnSubscribe();
+         UnSubscribe();
     }
 
 
@@ -28,19 +27,24 @@ public class UIManager : MonoBehaviour
     {
         CoreGameSignals.Instance.onLevelFailed += LevelFailed;
         CoreGameSignals.Instance.onLevelRestart += LevelRestart;
-        
+
 
         CoreUISignals.Instance.onStartPanel += onStartPanel;
         CoreUISignals.Instance.onPausePanel += onPausePanel;
         CoreUISignals.Instance.onLevelFailedPanel += onLevelFailedPanel;
         CoreUISignals.Instance.onUpgradePanel += onUpgradePanel;
+        CoreUISignals.Instance.onGameScoreUpdate += onGameScoreUpdate;
     }
 
-
+    private void onGameScoreUpdate(float value)
+    {
+        initialScore = value;
+        scoreText.text = "Score: " + initialScore.ToString();
+    }
 
     private void onUpgradePanel()
     {
-       upgradePanel.gameObject.SetActive(true);
+        upgradePanel.gameObject.SetActive(true);
     }
 
     private void onLevelFailedPanel()
@@ -57,7 +61,7 @@ public class UIManager : MonoBehaviour
     {
         menuPanel.SetActive(false);
         gamePanel.SetActive(true);
-     
+
     }
 
     private void LevelRestart()
@@ -65,7 +69,7 @@ public class UIManager : MonoBehaviour
         CoreUISignals.Instance.onLevelRestartPanel?.Invoke();
     }
 
-  
+
 
     private void LevelFailed()
     {
@@ -76,6 +80,8 @@ public class UIManager : MonoBehaviour
     {
         CoreGameSignals.Instance.onLevelInitialized?.Invoke(currentLevel);
         CoreUISignals.Instance.onStartPanel?.Invoke(); // close panel
+
+        CoreUISignals.Instance.onGameScoreUpdate?.Invoke(0);
     }
 
     public void GamePause()
@@ -86,18 +92,18 @@ public class UIManager : MonoBehaviour
 
     public void GameResume()
     {
-       pausePanel.gameObject.SetActive(false);
+        pausePanel.gameObject.SetActive(false);
     }
 
     public void GameRestart()
     {
         CoreGameSignals.Instance.onLevelRestart?.Invoke();
         CoreGameSignals.Instance.onLevelInitialized?.Invoke(currentLevel);
-
+        DataManager.Instance.ResetPlayerData();
         pausePanel.gameObject.SetActive(false);
         failPanel.SetActive(false);
     }
-    
+
 
     public void GameFail()
     {
@@ -106,26 +112,26 @@ public class UIManager : MonoBehaviour
 
     public void GameUpgrade()
     {
-      
-       CoreUISignals.Instance.onUpgradePanel?.Invoke();
+
+        CoreUISignals.Instance.onUpgradePanel?.Invoke();
 
     }
 
     public void GameUpgradeOne()
     {
-         CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(1.5f, 1.5f); // player data upgrade 
-         upgradePanel.SetActive(false);
+        CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(15); // player data upgrade HP
+        upgradePanel.SetActive(false);
     }
     public void GameUpgradeTwo()
     {
-         CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(1.5f, 1.5f); // player data upgrade 
-          upgradePanel.SetActive(false);
+       CoreGameSignals.Instance.onPlayerUpgradeSpeed?.Invoke(5f); // player data upgrade maxSpeed
+        upgradePanel.SetActive(false);
     }
 
     public void GameUpgradeThree()
     {
-         CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(1.5f, 1.5f); // player data upgrade 
-          upgradePanel.SetActive(false);
+       // CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(1.5f, 1.5f); // player data upgrade 
+        upgradePanel.SetActive(false);
     }
 
 
@@ -134,6 +140,13 @@ public class UIManager : MonoBehaviour
 
         CoreGameSignals.Instance.onLevelFailed -= LevelFailed;
         CoreGameSignals.Instance.onLevelRestart -= LevelRestart;
+
+
+        CoreUISignals.Instance.onStartPanel -= onStartPanel;
+        CoreUISignals.Instance.onPausePanel -= onPausePanel;
+        CoreUISignals.Instance.onLevelFailedPanel -= onLevelFailedPanel;
+        CoreUISignals.Instance.onUpgradePanel -= onUpgradePanel;
+        CoreUISignals.Instance.onGameScoreUpdate -= onGameScoreUpdate;
     }
 
 

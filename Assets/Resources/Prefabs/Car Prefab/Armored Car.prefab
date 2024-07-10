@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 310246756712225232}
   - component: {fileID: 7109224957534960659}
   - component: {fileID: 5454963516397825749}
+  - component: {fileID: 353311150142383988}
   m_Layer: 0
   m_Name: Armored Car
   m_TagString: Player
@@ -377,6 +378,21 @@ MonoBehaviour:
   _frontWheels:
   - {fileID: 3207932977804983663}
   - {fileID: 1479715269961341837}
+--- !u!114 &353311150142383988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421432109552372225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b54cd0d56834aacb67348d818b4cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialHealth: 3
+  _protectionTimeInterval: 3
+  _isDamagable: 1
 --- !u!1 &2802296283685269920
 GameObject:
   m_ObjectHideFlags: 0

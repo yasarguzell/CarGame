@@ -24,6 +24,7 @@ public class CarMovementController : MonoBehaviour
     private Vector2 _input;
     private float _inputAngleInDegrees;
     private bool _isGrounded;
+    private bool _isReversed = false;
 
     private Rigidbody _rb;
     private Transform _transform;
@@ -43,7 +44,7 @@ public class CarMovementController : MonoBehaviour
         right,
         frw
     }
-    
+
     void Start()
     {
         CoreGameSignals.Instance.onPlayerUpgradeSpeed += OnPlayerSpeedUpgrade;
@@ -54,7 +55,7 @@ public class CarMovementController : MonoBehaviour
         _maxSpeed += value;
     }
 
-   
+
 
     private void Awake()
     {
@@ -75,7 +76,6 @@ public class CarMovementController : MonoBehaviour
         CheckIsGrounded(out _isGrounded);
 
         StopRotationOnZAxis();
-        Debug.Log(_accelerationForce);
     }
 
     void FixedUpdate()
@@ -87,8 +87,23 @@ public class CarMovementController : MonoBehaviour
         if (!_isGrounded || Mathf.Abs(_input.magnitude) < Mathf.Epsilon)
             return;
 
+        float inputAngleInRadians = Mathf.Atan2(_input.y, _input.x);
+        float inputAgleInDegrees = inputAngleInRadians * Mathf.Rad2Deg;
+        Vector3 currentCarEulerAngles = _transform.rotation.eulerAngles;
+
         Acceleration();
-        Steering();
+        Steering(inputAgleInDegrees, currentCarEulerAngles);
+        Reverse(inputAgleInDegrees, currentCarEulerAngles);
+    }
+
+    private void Reverse(float inputAgleInDegrees, Vector3 currentCarEulerAngles)
+    {
+        float angleDifference = Mathf.Abs(Mathf.DeltaAngle(inputAgleInDegrees, currentCarEulerAngles.y));
+
+        if (!_isReversed)
+            _isReversed = _velocity < 3 && (angleDifference > 100);
+        else
+            _isReversed = angleDifference > 100;
     }
 
     private void StopRotationOnZAxis()
@@ -107,17 +122,18 @@ public class CarMovementController : MonoBehaviour
     private void Acceleration()
     {
         var force = _velocity < _maxSpeed ? _transform.forward * _accelerationForce * _input.magnitude : Vector3.zero;
+        force = _isReversed ? -force : force;
         _rb.AddForce(force);
     }
 
 
-    private void Steering()
+    private void Steering(float inputAgleInDegrees, Vector3 currentCarEulerAngles)
     {
-        float angleInRadians = Mathf.Atan2(_input.y, _input.x);
-        float angleInDegrees = angleInRadians * Mathf.Rad2Deg;
-        Vector3 currentEulerAngles = _rb.rotation.eulerAngles;
+        if (_isReversed && _velocity < 8)
+            return;
+
         float lerpValue = TurnSpeedCurve.Evaluate(_rb.velocity.magnitude) * _steeringConst;
-        Quaternion targetRotation = Quaternion.Lerp(_transform.rotation, Quaternion.Euler(currentEulerAngles.x, angleInDegrees, currentEulerAngles.z), lerpValue);
+        Quaternion targetRotation = Quaternion.Lerp(_transform.rotation, Quaternion.Euler(currentCarEulerAngles.x, inputAgleInDegrees, currentCarEulerAngles.z), lerpValue);
         _rb.MoveRotation(targetRotation);
     }
 

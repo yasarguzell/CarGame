@@ -13,6 +13,12 @@ public class UpdatePointCollection : MonoBehaviour
             canvas.SetActive(true);
             other.gameObject.SetActive(false);
         }
+        if (other.tag == "CollectibleWeapon")
+        {
+            //clickiable aç kapa
+            //GunManager.mountedGuns içinde var mý yok mu kontrol et
+            other.gameObject.SetActive(false);
+        }
     }
 
 }

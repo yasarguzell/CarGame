@@ -19,10 +19,6 @@ public class Projectile: MonoBehaviour
     {
         thisRigidbody = this.transform.GetComponent<Rigidbody>();
     }
-    private void FixedUpdate()
-    {
-        if (pointTowardsVelocity) PointTowardsVelocity();
-    }
 
     public void PointTowardsVelocity()
     {

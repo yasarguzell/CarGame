@@ -12,6 +12,7 @@ public class WeaponFire : Weapon
     [SerializeField] float exitVelocity = 100f;
     [SerializeField][Range(0.0f, 1.0f)] float exitVelocityRandomness = 0f;
     [SerializeField][Range(0.0f, 1.0f)] float directionRandomness = 0f;
+    [SerializeField] bool isDirectFire = false;
 
     private WeaponTargetLock weaponTargetLock;
     private bool isFireOn = true;
@@ -42,7 +43,15 @@ public class WeaponFire : Weapon
             projectileP.spawnPointTransform = exitPosition;
             projectileP.thisRigidbody = projectileRigidbody;
 
-            Vector3 dir = exitPosition.forward + new Vector3(Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness));
+            Vector3 dir = Vector3.zero;
+            if (isDirectFire)
+            {
+                dir = ((weaponTargetLock.targetTransform.position - exitPosition.position).normalized + new Vector3(Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness))).normalized;
+            }
+            else
+            {
+                dir = (exitPosition.transform.forward + new Vector3(Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness))).normalized;
+            }
             projectileRigidbody.velocity = dir * exitVelocity + dir * exitVelocity * Random.Range(-exitVelocityRandomness, exitVelocityRandomness);
         }
     }

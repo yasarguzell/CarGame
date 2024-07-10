@@ -20,6 +20,11 @@ public class Granade : Projectile
         AddTumble();
     }
 
+    private void FixedUpdate()
+    {
+        if (pointTowardsVelocity) PointTowardsVelocity();
+    }
+
     void AddUpwardsVelocity()
     {
         thisRigidbody.velocity -= Vector3.up * (predictedTime / 2f) * Physics.gravity.y * maxHeight;

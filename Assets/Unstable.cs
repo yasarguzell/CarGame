@@ -20,6 +20,10 @@ public class Unstable : Projectile
         StartCoroutine(ChangeJitterTarget());
         StartCoroutine(MoveTowardsTarget());
     }
+    private void FixedUpdate()
+    {
+        if (pointTowardsVelocity) PointTowardsVelocity();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

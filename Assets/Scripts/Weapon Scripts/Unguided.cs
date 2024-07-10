@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class Unguided : Projectile
 {
+    private void FixedUpdate()
+    {
 
+        if (pointTowardsVelocity) PointTowardsVelocity();
+    }
 }

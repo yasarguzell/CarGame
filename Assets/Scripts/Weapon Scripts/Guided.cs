@@ -16,6 +16,7 @@ public class Guided : Projectile
     {
         VelocityIncrement();
         GuidanceIncrement();
+        if (pointTowardsVelocity) PointTowardsVelocity();
     }
 
     void VelocityIncrement()
@@ -38,7 +39,7 @@ public class Guided : Projectile
         Vector3 normalVector = Vector3.Cross(velocityDirection, guidanceTargetDirection);
 
         float increment = (angleChangePerSecond * Mathf.Clamp((thisRigidbody.velocity.magnitude / maxMobilityVelocity), 0.0f, 1.0f) * Time.fixedDeltaTime);
-        if (Vector3.Angle(velocityDirection, guidanceTargetDirection) > increment * Time.deltaTime)
+        if (Vector3.Angle(velocityDirection, guidanceTargetDirection) > increment)
         {
             thisRigidbody.velocity = Quaternion.AngleAxis(increment, normalVector) * velocityDirection * thisRigidbody.velocity.magnitude;
         }

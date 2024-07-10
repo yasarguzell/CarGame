@@ -423,6 +423,7 @@ MonoBehaviour:
   exitVelocity: 100
   exitVelocityRandomness: 0
   directionRandomness: 0
+  isDirectFire: 1
 --- !u!1 &8918308026446483452
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,12 @@ void Start()
 void Update()
 {
   Debug.Log(DataManager.Instance.playerData.playerHp);
+
+
+  float horizontalInput = Input.GetAxis("Horizontal");
+  float verticalInput = Input.GetAxis("Vertical");
+  Vector3 pos=new Vector3(horizontalInput,0,verticalInput);
+  transform.Translate(pos*15*Time.deltaTime);
 }
     
   void OnTriggerEnter(Collider other)
@@ -21,4 +27,5 @@ void Update()
         
     }
   }
+
 }

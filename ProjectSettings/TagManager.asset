@@ -9,6 +9,7 @@ TagManager:
   - FuelTank
   - CollectibleWeapon
   - Ground
+  - Spell_Nitro
   layers:
   - Default
   - TransparentFX

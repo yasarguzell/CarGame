@@ -22,7 +22,7 @@ public class MeleeEnemy : EnemyBase
     }
     public override void Patrol()
     {
-        Debug.Log("Patrolling");
+        //Debug.Log("Patrolling");
         if ((!agent.pathPending && agent.remainingDistance < 0.5f) || isPatrolling == false)
         {
             anim.SetBool(ANIM_ATTACK_BOOL_NAME, false);
@@ -40,7 +40,7 @@ public class MeleeEnemy : EnemyBase
 
     public override void Chase()
     {
-        Debug.Log("Chasing");
+        //Debug.Log("Chasing");
 
         anim.SetBool(ANIM_ATTACK_BOOL_NAME, false);
 
@@ -55,7 +55,7 @@ public class MeleeEnemy : EnemyBase
 
     public override void Attack()
     {
-        Debug.Log("Attacking");
+        //Debug.Log("Attacking");
         transform.LookAt(target.transform.position);
         anim.SetBool(ANIM_ATTACK_BOOL_NAME, true); //Damage transactions in animation event 
     }

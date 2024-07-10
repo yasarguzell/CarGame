@@ -11,12 +11,19 @@ public class ShooterEnemy : EnemyBase
     public override void Start()
     {
         base.Start();
-        attackDistance = 5;
-        //chaseDistance = 15;
+    }
+    public override void Update()
+    {
+        base.Update();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(10);
+        }
     }
     public override void Chase()
     {
-        Debug.Log("Chasing");
+        //Debug.Log("Chasing");
 
         anim.SetBool(ANIM_ATTACK_BOOL_NAME, false);
 
@@ -30,7 +37,7 @@ public class ShooterEnemy : EnemyBase
     }
     public override void Patrol()
     {
-        Debug.Log("Patrolling");
+        //Debug.Log("Patrolling");
         if ((!agent.pathPending && agent.remainingDistance < 0.5f) || isPatrolling == false)
         {
             anim.SetBool(ANIM_ATTACK_BOOL_NAME, false);
@@ -48,11 +55,7 @@ public class ShooterEnemy : EnemyBase
     }
     public override void Attack()
     {
-        Debug.Log("Attacking");
-        if ((!agent.pathPending && agent.remainingDistance < 0.5f) || isPatrolling == false)
-        {
-            Debug.Log("Attacking 2");
-        }
+        //Debug.Log("Attacking");
         transform.LookAt(target.transform.position);
         anim.SetBool(ANIM_ATTACK_BOOL_NAME, true); //Damage transactions in animation event 
     }
@@ -79,6 +82,14 @@ public class ShooterEnemy : EnemyBase
             projectile.Throw(directionToTarget);
         }
     }
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        PlayerControllerTest controller = other.GetComponentInParent<PlayerControllerTest>();
+        if (controller != null)
+        {
+            Die();
+        }
+    }
+
 
 }

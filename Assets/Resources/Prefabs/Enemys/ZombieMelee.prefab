@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 375461850486752570}
   - component: {fileID: 6099486183330829478}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,9 +99,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 3958982340879628325}
   - component: {fileID: 5416918880590816023}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,9 +204,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 7902584157994456246}
   - component: {fileID: 887697987491085472}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,9 +309,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdea92dbe70ff34180abf428debfb7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 15
 --- !u!54 &3737541734809630716
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -474,7 +475,7 @@ GameObject:
   - component: {fileID: 7499043322970861717}
   - component: {fileID: 5210344507650634349}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: Waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -560,9 +561,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -579,7 +580,7 @@ GameObject:
   - component: {fileID: 6752717926401187278}
   - component: {fileID: 5708449281399513922}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -665,9 +666,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -753,7 +754,7 @@ GameObject:
   - component: {fileID: 3651148544896753776}
   - component: {fileID: 2950254616100798993}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -839,9 +840,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -917,6 +918,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1497507383330918, guid: b6dd7aa0471525a4ba150a6dd06fc4b4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8691530890854643841}
+    - targetCorrespondingSourceObject: {fileID: 1497507383330918, guid: b6dd7aa0471525a4ba150a6dd06fc4b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1393986841498766720}
+    - targetCorrespondingSourceObject: {fileID: 1497507383330918, guid: b6dd7aa0471525a4ba150a6dd06fc4b4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7257104651642336049}
   m_SourcePrefab: {fileID: 100100000, guid: b6dd7aa0471525a4ba150a6dd06fc4b4, type: 3}
 --- !u!4 &3021246585635384731 stripped
 Transform:
@@ -952,6 +959,7 @@ MonoBehaviour:
   attackDistance: 1
   chaseDistance: 15
   patrolPointsParent: {fileID: 5851687888650492282}
+  deneme: {fileID: 0}
 --- !u!195 &8691530890854643841
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -974,3 +982,51 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &1393986841498766720
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024391306059197131}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.67251015, y: 1.9880842, z: 1}
+  m_Center: {x: 0.0049619675, y: 0.99130803, z: 0}
+--- !u!54 &7257104651642336049
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024391306059197131}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

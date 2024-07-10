@@ -29,11 +29,14 @@ public class ZombileShooterProjectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        // Çarpýþma algýlandýðýnda mermiyi havuza geri döndür
-        //ReturnToPool();
+        if (collision.gameObject.tag=="Ground")
+        {
+            ReturnToPool();
+        }
+
     }
 
-    private void ReturnToPool()
+    public void ReturnToPool()
     {
         _rb.velocity = Vector3.zero; // Merminin hýzýný sýfýrla
         _rb.angularVelocity = Vector3.zero; // Merminin açýsal hýzýný sýfýrla

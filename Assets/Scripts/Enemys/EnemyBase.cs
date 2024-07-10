@@ -47,7 +47,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
         if (isDead)
             return;
 
-         distance = Vector3.Distance(transform.position, target.position);
+        distance = Vector3.Distance(transform.position, target.position);
 
         if (distance > chaseDistance)
         {
@@ -62,7 +62,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
             Attack();
         }
 
-        
+
 
     }
     public abstract void Chase();
@@ -82,7 +82,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
     }
     public virtual void CheckHealth()
     {
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
             Die();
         }
@@ -90,10 +90,14 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
 
     public virtual void Die()
     {
-        agent.isStopped = true;
-        agent.enabled = false;
-        anim.SetTrigger(ANIM_DIE_TRIGGER_NAME);
-        isDead = true;
-    }
+        if (!isDead)
+        {
+            agent.isStopped = true;
+            agent.enabled = false;
+            anim.SetTrigger(ANIM_DIE_TRIGGER_NAME);
+            isDead = true;
+        }
 
+    }
+   
 }

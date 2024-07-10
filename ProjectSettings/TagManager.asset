@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - FuelTank
   - CollectibleWeapon
+  - Ground
   layers:
   - Default
   - TransparentFX

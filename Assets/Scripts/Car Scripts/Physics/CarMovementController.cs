@@ -1,4 +1,5 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class CarMovementController : MonoBehaviour
@@ -75,7 +76,7 @@ public class CarMovementController : MonoBehaviour
 
         CheckIsGrounded(out _isGrounded);
 
-        StopRotationOnZAxis();
+        StopRotationOnZAndXAxis();
     }
 
     void FixedUpdate()
@@ -106,9 +107,22 @@ public class CarMovementController : MonoBehaviour
             _isReversed = angleDifference > 100;
     }
 
-    private void StopRotationOnZAxis()
+    private void StopRotationOnZAndXAxis()
     {
         _rb.angularVelocity = new Vector3(_rb.angularVelocity.x, _rb.angularVelocity.y, 0);
+
+        if (_transform.rotation.eulerAngles.x > 80)
+        {
+            float x = Mathf.Abs(_transform.rotation.eulerAngles.x) > 80 ? 0 : _transform.rotation.eulerAngles.x;
+            float z = Mathf.Abs(_transform.rotation.eulerAngles.z) > 0 ? 0 : _transform.rotation.eulerAngles.z;
+            _rb.angularVelocity = new Vector3(0, _rb.angularVelocity.y, 0);
+            Quaternion quaternion = new Quaternion
+            {
+                eulerAngles = new Vector3(x, _transform.rotation.eulerAngles.y, z)
+            };
+            _rb.MoveRotation(quaternion);
+        }
+
         if (Mathf.Abs(_transform.rotation.eulerAngles.z) > 0)
         {
             Quaternion quaternion = new Quaternion
@@ -129,9 +143,6 @@ public class CarMovementController : MonoBehaviour
 
     private void Steering(float inputAgleInDegrees, Vector3 currentCarEulerAngles)
     {
-        if (_isReversed && _velocity < 8)
-            return;
-
         float lerpValue = TurnSpeedCurve.Evaluate(_rb.velocity.magnitude) * _steeringConst;
         Quaternion targetRotation = Quaternion.Lerp(_transform.rotation, Quaternion.Euler(currentCarEulerAngles.x, inputAgleInDegrees, currentCarEulerAngles.z), lerpValue);
         _rb.MoveRotation(targetRotation);

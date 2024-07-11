@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3980345195321539026}
   - component: {fileID: -8006344171113439416}
   - component: {fileID: 6034122368198509481}
+  - component: {fileID: 620108612552046441}
   m_Layer: 0
   m_Name: Projectile_Guided
   m_TagString: Untagged
@@ -205,10 +206,24 @@ MonoBehaviour:
   spawnPointTransform: {fileID: 0}
   thisRigidbody: {fileID: 0}
   pointTowardsVelocity: 1
-  damage: 40
+  damage: 80
   acceleration: 16
   angleChangePerSecond: 1000
   maxMobilityVelocity: 100
+--- !u!114 &620108612552046441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662349398542856186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf66877b87cbea4687aaa764ba733fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleTransform: {fileID: 4642304544289128, guid: 683f66499c1106c46a255bc2f4d378bc, type: 3}
+  radius: 5
 --- !u!1001 &234615813184553218
 PrefabInstance:
   m_ObjectHideFlags: 0

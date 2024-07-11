@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6607733613316057672}
@@ -103,7 +103,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 4, z: 15}
+  m_Size: {x: 4, y: 4, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7662349398542856186
 GameObject:
@@ -118,9 +118,9 @@ GameObject:
   - component: {fileID: 3980345195321539026}
   - component: {fileID: -8006344171113439416}
   - component: {fileID: 5887732044846925124}
-  - component: {fileID: 8687266541918473910}
+  - component: {fileID: -2028572943860391010}
   m_Layer: 0
-  m_Name: Projectile_Bullet
+  m_Name: Projectile_BulletHeavy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,7 +215,7 @@ TrailRenderer:
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.04
+    widthMultiplier: 0.1
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -311,8 +311,8 @@ MonoBehaviour:
   spawnPointTransform: {fileID: 0}
   thisRigidbody: {fileID: 0}
   pointTowardsVelocity: 0
-  damage: 4
---- !u!114 &8687266541918473910
+  damage: 35
+--- !u!114 &-2028572943860391010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

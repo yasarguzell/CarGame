@@ -46,7 +46,7 @@ public class WeaponFire : Weapon
             Vector3 dir = Vector3.zero;
             if (isDirectFire)
             {
-                dir = ((weaponTargetLock.targetTransform.position - exitPosition.position).normalized + new Vector3(Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness))).normalized;
+                dir = (((weaponTargetLock.targetTransform.position + weaponTargetLock.trackOffset) - exitPosition.position).normalized + new Vector3(Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness), Random.Range(-directionRandomness, directionRandomness))).normalized;
             }
             else
             {

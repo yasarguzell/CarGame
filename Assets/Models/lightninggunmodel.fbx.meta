@@ -3,7 +3,27 @@ guid: 3e719fa9b59b1924db9497b05d44b5f5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Emissive
+    second: {fileID: 2100000, guid: e59b14767e318e24196743430aba70a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 07b251bd2212e5f4aba850b30d1ea4de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gun.002
+    second: {fileID: 2100000, guid: 3dfdf6e22c8969c4aa5a150880f067a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gungrey.002
+    second: {fileID: 2100000, guid: d42954d0d1c5c0a44a09fdae840f45e8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -21,6 +21,7 @@ public class WeaponTargetLock : Weapon
     [SerializeField] Transform targetsParent;
     [SerializeField] float rotationSpeed = 1f;
     [SerializeField][Tooltip("How much closer the new target cannidate neets to be for target change.")] float differenceThreshold = 1f;
+    [SerializeField] public Vector3 trackOffset;
     //
 
     private void Start()
@@ -48,7 +49,7 @@ public class WeaponTargetLock : Weapon
     void ComponentTrackTargetRotation(Transform componentTransform, Vector3 componentFreeAxis, Transform targetTransform)
     {
         //Full interpolated track
-        Vector3 dir = (targetTransform.position - componentTransform.position).normalized;
+        Vector3 dir = ((targetTransform.position + trackOffset) - componentTransform.position).normalized;
         Quaternion rot = Quaternion.LookRotation(dir);
         rot = Quaternion.Lerp(componentTransform.rotation, rot, rotationSpeed * Time.deltaTime);
         componentTransform.rotation = rot;
@@ -61,7 +62,7 @@ public class WeaponTargetLock : Weapon
     {
         for (int i = 0; i < targetsParent.childCount; i++)
         {
-            Transform tempChild = targetsParent.GetChild(i);
+            Transform tempChild = targetsParent.GetChild(i).GetChild(0);
             if (!targetTransform)
             {
                 targetTransform = tempChild;

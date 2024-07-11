@@ -156,7 +156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7169528574478527589}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: -0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -185,6 +185,7 @@ MonoBehaviour:
   targetsParent: {fileID: 0}
   rotationSpeed: 40
   differenceThreshold: 2
+  trackOffset: {x: 0, y: 0.7, z: 0}
 --- !u!114 &1750767426938932414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,13 +199,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 0}
-  projectile: {fileID: 6607733613316057672, guid: 2f9c14796e259074caffcf924ca3aa25, type: 3}
+  projectile: {fileID: 6607733613316057672, guid: f7bbe11b5c0aa2643a74d2e9946afa35, type: 3}
   exitPosition: {fileID: 3917218826152707552}
   fireRate: 1.5
-  burstCount: 14
-  exitVelocity: 100
-  exitVelocityRandomness: 0.212
-  directionRandomness: 0.137
+  burstCount: 12
+  exitVelocity: 110
+  exitVelocityRandomness: 0.171
+  directionRandomness: 0.101
   isDirectFire: 1
 --- !u!1001 &1779266851821765618
 PrefabInstance:

@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: -8006344171113439416}
   - component: {fileID: 3481809201286803506}
   - component: {fileID: 6681707538193191399}
+  - component: {fileID: -110280768340542216}
   m_Layer: 0
   m_Name: Projectile_Unstable
   m_TagString: Untagged
@@ -281,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d4ccf524aa2734ba30fd34395e3c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 0.225
+  seconds: 0.275
 --- !u!114 &3481809201286803506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,7 +299,7 @@ MonoBehaviour:
   spawnPointTransform: {fileID: 0}
   thisRigidbody: {fileID: 0}
   pointTowardsVelocity: 1
-  damage: 75
+  damage: 50
   jitterObject: {fileID: 1715389613065760664}
   jitterDeviation: 1000
   jitterFrequency: 50
@@ -318,9 +319,22 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.05, y: 0.05, z: 0.05}
+  m_Size: {x: 1, y: 1, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-110280768340542216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7662349398542856186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5b40c8fc5d00d458f7b0786da29120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleTransform: {fileID: 4150649967365504, guid: 2316d5d8ab704e64d84334526d9c658d, type: 3}

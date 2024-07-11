@@ -183,8 +183,9 @@ MonoBehaviour:
   - weaponComponent: {fileID: 2811879460740049003}
     freeAxis: {x: 1, y: 0, z: 0}
   targetsParent: {fileID: 0}
-  rotationSpeed: 20
+  rotationSpeed: 45
   differenceThreshold: 2
+  trackOffset: {x: 0, y: 0.7, z: 0}
 --- !u!114 &1750767426938932414
 MonoBehaviour:
   m_ObjectHideFlags: 0

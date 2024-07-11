@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - tag: Road1
-    prefab: {fileID: 2396075461559779091, guid: 2f807e7a2a1b34744bebd47a26c55afb, type: 3}
+    prefab: {fileID: 5154400580410836273, guid: bf95bc1a352d8f24abf569581b45ba6f, type: 3}
     size: 2
 --- !u!114 &5350509717505493563
 MonoBehaviour:
@@ -61,5 +61,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87cbbc0e0b2d06c4484fff9646601a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundSpawnDistance: -545
-  playerTransform: {fileID: 0}
+  groundSpawnDistance: -1050

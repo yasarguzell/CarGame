@@ -63,15 +63,11 @@ public class UIEventSubscriber : MonoBehaviour
 
 
             // test buttons
-            case UIEventSubscriptionTypes.FailTest: // player dead signals CoreGameSignals.onLevelFailed
-                button.onClick.AddListener(_manager.GameFail);
-                break;
+            
             case UIEventSubscriptionTypes.UpgradeTest: // player collider upgrade signals CoreGameuuıSignals.onPlayerUpgrade
                 button.onClick.AddListener(_manager.GameUpgrade);
                 break;
-            case UIEventSubscriptionTypes.Test:
-                button.onClick.AddListener(_manager.GameTest);
-                break;
+           
 
 
         }
@@ -86,6 +82,9 @@ public class UIEventSubscriber : MonoBehaviour
                 break;
             case UIEventSubscriptionTypes.Pause:
                 button.onClick.RemoveListener(_manager.GamePause);
+                break;
+            case UIEventSubscriptionTypes.Quit:
+                button.onClick.RemoveListener(_manager.GameQuit);
                 break;
             case UIEventSubscriptionTypes.Resume:
                 button.onClick.RemoveListener(_manager.GameResume);

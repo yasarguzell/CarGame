@@ -28,11 +28,7 @@ namespace CarGame.Car
         {
             CoreUISignals.Instance.onGameSetHpBarUpdate?.Invoke((byte)_health);
             _health--;
-
-            if(_health == -1)
-            {
-                CoreGameSignals.Instance.onLevelFailed?.Invoke();
-            }
+          
         }
 
         private void EndProtection()

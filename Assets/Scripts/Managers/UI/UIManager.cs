@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     byte currentLevel = 0;
     float _kmInitialScore = 0;
     float _fuelInitialScore = 0;
-    float currentStage = 2;
 
     void OnEnable()
     {
@@ -29,7 +28,6 @@ public class UIManager : MonoBehaviour
     {
         UnSubscribe();
     }
-
 
     void Subscribe()
     {
@@ -45,7 +43,7 @@ public class UIManager : MonoBehaviour
         CoreUISignals.Instance.onGameFuelPanelUpdate += onGameFuelPanelUpdate;
         CoreUISignals.Instance.onGameSetHpBarUpdate += onGameSetHpBarUpdate;
         CoreUISignals.Instance.onGameSetHpBarRestartUpdate += onGameSetHpBarRestartUpdate;
-       
+
     }
 
     private void onGameSetHpBarRestartUpdate(byte stageValue)
@@ -61,20 +59,6 @@ public class UIManager : MonoBehaviour
 
         hpImages[stageValue].DOColor(Color.white, 0.5f);
     }
-
-// BUTTON
-    public void GameTest()
-    {
-        CoreUISignals.Instance.onGameSetHpBarUpdate?.Invoke((byte)currentStage);
-        currentStage--;
-        Debug.Log($"stage: {currentStage}");
-
-        if (currentStage == -1)
-        {
-            GameFail();
-        }
-    }
-
     private void onGameFuelPanelUpdate(float value)
     {
         _fuelInitialScore = value;
@@ -116,19 +100,16 @@ public class UIManager : MonoBehaviour
         CoreUISignals.Instance.onLevelRestartPanel?.Invoke();
     }
 
-
-
     private void LevelFailed()
     {
         CoreUISignals.Instance.onLevelFailedPanel?.Invoke();
+        CoreGameSignals.Instance.onGamePause?.Invoke();
     }
 
     public void GameStart()
     {
         CoreGameSignals.Instance.onLevelInitialized?.Invoke(currentLevel);
         CoreUISignals.Instance.onStartPanel?.Invoke(); // close panel
-
-
     }
 
     public void GamePause()
@@ -153,22 +134,13 @@ public class UIManager : MonoBehaviour
 
         pausePanel.gameObject.SetActive(false);
         failPanel.SetActive(false);
-        currentStage = 2;
     }
 
-
-    public void GameFail()
-    {
-        CoreGameSignals.Instance.onLevelFailed?.Invoke();
-        CoreGameSignals.Instance.onGamePause?.Invoke();
-    }
 
     public void GameUpgrade()
     {
-
         CoreUISignals.Instance.onUpgradePanel?.Invoke();
         CoreGameSignals.Instance.onGamePause?.Invoke();
-
     }
 
     public void GameUpgradeOne()
@@ -216,8 +188,5 @@ public class UIManager : MonoBehaviour
         CoreUISignals.Instance.onGameScoreTextUpdate -= onGameScoreUpdate;
         CoreUISignals.Instance.onGameFuelPanelUpdate -= onGameFuelPanelUpdate;
     }
-
-
-
 
 }

@@ -5,13 +5,17 @@ public class ObjectSpawner : MonoBehaviour
    [Header("Values")]
     [SerializeField] private float groundSpawnDistance = 50f;
 
-    [SerializeField] Transform playerTransform;
+     Transform playerTransform;
 
     public static ObjectSpawner instance;
 
     void Awake()
     {
         instance = this;
+    }
+    void Start()
+    {
+        playerTransform = FindAnyObjectByType<CarMovementController>().transform;
     }
     
     public void SpawnGround()

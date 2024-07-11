@@ -10,8 +10,8 @@ public class CarMovementController : MonoBehaviour
     [SerializeField] private float _velocity;
 
     [Header("Acceleration Settings")]
-    public float _accelerationForce;
-    public float _maxSpeed;
+    [SerializeField] private float _accelerationForce;
+    [SerializeField] private float _maxSpeed;
 
     [Header("Steering Settings - Drift")]
     [SerializeField] private float _steeringConst;
@@ -21,6 +21,8 @@ public class CarMovementController : MonoBehaviour
     [SerializeField] private FixedJoystick Joystick;
     [SerializeField] private Transform[] _rearWheels;
     [SerializeField] private Transform[] _frontWheels;
+
+    public float MaxSpeed { get { return _maxSpeed; } }
 
     private Vector2 _input;
     private float _inputAngleInDegrees;

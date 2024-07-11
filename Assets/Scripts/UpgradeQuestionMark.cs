@@ -19,7 +19,7 @@ public class UpgradeQuestionMark : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _uiManager.GameUpgrade();
+            CoreUISignals.Instance.onUpgradePanel?.Invoke();
             gameObject.SetActive(false);
         }
     }

@@ -28,6 +28,7 @@ namespace CarGame.Car
         {
             CoreUISignals.Instance.onGameSetHpBarUpdate?.Invoke((byte)_health);
             _health--;
+            
           
         }
 

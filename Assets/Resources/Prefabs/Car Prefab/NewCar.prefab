@@ -86,7 +86,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!114 &5631836277023721056
 MonoBehaviour:
@@ -249,6 +249,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  slotLimit: 0
+  weaponIndex: 0
 --- !u!1001 &2536866891786742094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -303,7 +305,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6242767797688542905, guid: 4de46d888ef9550478c6d51e31d5b888, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6799498992992693005}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4de46d888ef9550478c6d51e31d5b888, type: 3}
 --- !u!4 &328272214950990332 stripped
@@ -330,4 +335,74 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6242767797688542905, guid: 4de46d888ef9550478c6d51e31d5b888, type: 3}
   m_PrefabInstance: {fileID: 2536866891786742094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4856541589650868470
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8472967186806001655}
+    m_Modifications:
+    - target: {fileID: 2105796314514695163, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.759
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105796314514695163, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.476
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105796314514695163, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.661
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105796314514695163, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105796314514695163, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105796314514695163, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105796314514695163, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105796314514695163, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105796314514695163, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2105796314514695163, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108915398479578268, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: m_Name
+      value: Exhaust
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380832391367822377, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: carRigidbody
+      value: 
+      objectReference: {fileID: 8971795487367261496}
+    - target: {fileID: 6380832391367822377, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+      propertyPath: movementController
+      value: 
+      objectReference: {fileID: 5631836277023721056}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+--- !u!4 &6799498992992693005 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2105796314514695163, guid: 9554e3827664f4d5db3a4430ffce1538, type: 3}
+  m_PrefabInstance: {fileID: 4856541589650868470}
   m_PrefabAsset: {fileID: 0}

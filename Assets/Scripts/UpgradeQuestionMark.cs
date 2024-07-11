@@ -10,7 +10,7 @@ public class UpgradeQuestionMark : MonoBehaviour
 
     private UIManager _uiManager;
 
-    private void Start()
+    /*private void Start()
     {
         _uiManager = FindObjectOfType<UIManager>();
     }
@@ -22,7 +22,7 @@ public class UpgradeQuestionMark : MonoBehaviour
             CoreUISignals.Instance.onUpgradePanel?.Invoke();
             gameObject.SetActive(false);
         }
-    }
+    }*/
 
     private void OnValidate()
     {

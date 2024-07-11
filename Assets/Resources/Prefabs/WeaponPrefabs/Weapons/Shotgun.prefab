@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 7013375337514878930}
   - component: {fileID: 2029771564635363487}
   - component: {fileID: 1750767426938932414}
+  - component: {fileID: 132380404846200458}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -207,6 +208,22 @@ MonoBehaviour:
   exitVelocityRandomness: 0.171
   directionRandomness: 0.101
   isDirectFire: 1
+--- !u!114 &132380404846200458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169528574478527589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9fe2bdb5b0c3b42ac0f0376461299d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 'Shotgun '
+  gunDamageIndex: 0
+  gunShootingSpeedIndex: 0
+  gunChargerCapacityIndex: 0
 --- !u!1001 &1779266851821765618
 PrefabInstance:
   m_ObjectHideFlags: 0

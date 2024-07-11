@@ -22,8 +22,6 @@ public class ObjectSpawner : MonoBehaviour
     {
         Vector3 spawnPosition = new Vector3(0, 0, playerTransform.position.z + groundSpawnDistance);
         ObjectPooler.Instance.SpawnFromPool("Road1", spawnPosition, Quaternion.identity);
-        
-
 
     }
 }

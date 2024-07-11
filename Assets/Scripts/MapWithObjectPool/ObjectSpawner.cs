@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-   [Header("Values")]
+    [Header("Values")]
     [SerializeField] private float groundSpawnDistance = 50f;
 
-     Transform playerTransform;
+    public Transform playerTransform;
 
     public static ObjectSpawner instance;
 
@@ -15,13 +15,23 @@ public class ObjectSpawner : MonoBehaviour
     }
     void Start()
     {
-        playerTransform = FindAnyObjectByType<CarMovementController>().transform;
+        //playerTransform = FindAnyObjectByType<CarMovementController>().transform;
     }
-    
+    public int level_index = 1;
     public void SpawnGround()
     {
+
         Vector3 spawnPosition = new Vector3(0, 0, playerTransform.position.z + groundSpawnDistance);
-        ObjectPooler.Instance.SpawnFromPool("Road1", spawnPosition, Quaternion.identity);
+        ObjectPooler.Instance.SpawnFromPool("Road" + level_index, spawnPosition, Quaternion.identity);
+
+        if (level_index != 5)
+        {
+            level_index++;
+        }
+        else
+        {
+            level_index = 1;
+        }
 
     }
 }

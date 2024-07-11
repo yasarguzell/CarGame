@@ -24135,11 +24135,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 15.92
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -24163,8 +24163,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745306991}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.9874134, z: -0.1581608, w: 0}
-  m_LocalPosition: {x: -134.72, y: -62.86, z: 224.17}
+  m_LocalRotation: {x: -0.08767505, y: 0.9042573, z: -0.22523022, w: -0.351999}
+  m_LocalPosition: {x: -217.48, y: -57.41, z: 73.090004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47803,24 +47803,64 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
       propertyPath: pools.Array.size
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
       propertyPath: pools.Array.data[1].tag
       value: Road2
       objectReference: {fileID: 0}
     - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
+      propertyPath: pools.Array.data[2].tag
+      value: Road3
+      objectReference: {fileID: 0}
+    - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
+      propertyPath: pools.Array.data[3].tag
+      value: Road4
+      objectReference: {fileID: 0}
+    - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
+      propertyPath: pools.Array.data[4].tag
+      value: Road5
+      objectReference: {fileID: 0}
+    - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
+      propertyPath: pools.Array.data[0].size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
       propertyPath: pools.Array.data[1].size
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
+      propertyPath: pools.Array.data[2].size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
+      propertyPath: pools.Array.data[3].size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
+      propertyPath: pools.Array.data[4].size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
       propertyPath: pools.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 167102808798299397, guid: a28b9dde5fb19b14094370f8ff9e7139, type: 3}
+      objectReference: {fileID: 4040081126297155366, guid: 8a6dcade883ba3440bced31529e9de34, type: 3}
     - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
       propertyPath: pools.Array.data[1].prefab
       value: 
       objectReference: {fileID: 8529711323233364644, guid: e5323bca05daf2841882348ccb4cce62, type: 3}
+    - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
+      propertyPath: pools.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 167102808798299397, guid: a28b9dde5fb19b14094370f8ff9e7139, type: 3}
+    - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
+      propertyPath: pools.Array.data[3].prefab
+      value: 
+      objectReference: {fileID: 3722721544283820677, guid: f63092a5b4d82f1428b4dc072ec72b19, type: 3}
+    - target: {fileID: 793449503515175913, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
+      propertyPath: pools.Array.data[4].prefab
+      value: 
+      objectReference: {fileID: 6841267772825477563, guid: be1a1ea666de9a44f8c558c83ec3bf4d, type: 3}
     - target: {fileID: 5350509717505493563, guid: fbd51768be6b23d49b1456632c9b459a, type: 3}
       propertyPath: playerTransform
       value: 

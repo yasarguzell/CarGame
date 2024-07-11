@@ -9,7 +9,7 @@ public class MoveComponent : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             ObjectSpawner.instance.SpawnGround();
-            Destroy(other.gameObject);
+            Destroy(gameObject);
             Debug.Log($"Player spawned");
 
         }

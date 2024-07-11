@@ -9,6 +9,7 @@ public class MeleeEnemy : EnemyBase
     public override void Start()
     {
         base.Start();
+        targetsParent = GameObject.FindGameObjectWithTag("DamagePMeele").transform;
     }
     public override void Update()
     {

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7c43f610f3f9486ebca677903e1778e, type: 3}
   m_Name: Car Physics
   m_EditorClassIdentifier: 
-  AccelerationForce: 50000
-  MaxSpeed: 100
+  AccelerationForce: 80000
+  MaxSpeed: 25
   SteeringConst: 1
   TurnSpeedCurve:
     serializedVersion: 2

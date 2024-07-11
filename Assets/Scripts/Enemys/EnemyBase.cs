@@ -123,7 +123,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
     {
         this.transform.DOScale(Vector3.zero, 1).OnComplete(() =>
         {
-            print("Ölüm animasyonu bittikten 1 saniyes sonra setacitve false oluyor.");
+            print("ï¿½lï¿½m animasyonu bittikten 1 saniyes sonra setacitve false oluyor.");
             transform.parent.gameObject.SetActive(false);
            
         }

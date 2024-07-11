@@ -12,6 +12,8 @@ public class ShooterEnemy : EnemyBase
     public override void Start()
     {
         base.Start();
+        targetsParent = GameObject.FindGameObjectWithTag("DamagePShooting").transform;
+        Debug.LogError(targetsParent + ""+ GameObject.FindGameObjectWithTag("DamagePShooting").name);
     }
     public override void Update()
     {

@@ -20,9 +20,7 @@ public class DataManager : MonoBehaviour
     void Start()
     {
         playerData = new PlayerData();
-        Subscribe();
-
-
+        
         playerData.playerHp = 100;
         playerData.playerSpeed = 5;
 
@@ -30,12 +28,12 @@ public class DataManager : MonoBehaviour
 
     void OnEnable()
     {
-        // Subscribe();
+         Subscribe();
     }
 
     void OnDisable()
     {
-        //UnSubscribe();
+        UnSubscribe();
     }
 
     public void ResetPlayerData()

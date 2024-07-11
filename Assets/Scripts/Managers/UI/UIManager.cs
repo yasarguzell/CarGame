@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour
     private void onUpgradePanel()
     {
         upgradePanel.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private void onLevelFailedPanel()
@@ -121,17 +122,20 @@ public class UIManager : MonoBehaviour
     {
         CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(15); // player data upgrade HP
         upgradePanel.SetActive(false);
+        Time.timeScale = 1;
     }
     public void GameUpgradeTwo()
     {
        CoreGameSignals.Instance.onPlayerUpgradeSpeed?.Invoke(5f); // player data upgrade maxSpeed
         upgradePanel.SetActive(false);
+         Time.timeScale = 1;
     }
 
     public void GameUpgradeThree()
     {
        // CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(1.5f, 1.5f); // player data upgrade 
         upgradePanel.SetActive(false);
+         Time.timeScale = 1;
     }
 
 

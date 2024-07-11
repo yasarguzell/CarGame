@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,9 +16,13 @@ public class UpdatePointCollection : MonoBehaviour
 
     public List<GameObject> weaponObjects = new List<GameObject>();
 
+    public int slotLimit;
+    public int weaponIndex;
+
     private void Awake()
     {
         carAttributes = GetComponent<CarAttributes>();
+        slotLimit = carAttributes.gunPositions.Count;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +35,7 @@ public class UpdatePointCollection : MonoBehaviour
         if(other.tag == "CollectibleWeapon")
         {
             other.gameObject.SetActive(false);
-            int weaponIndex = other.GetComponent<GunPoint>().weaponType;
+            weaponIndex = other.GetComponent<GunPoint>().weaponType;
             if (carAttributes.mountedGuns.Contains(weaponIndex))
             {
                 gunUpdatePanel.SetActive(true);
@@ -38,13 +43,23 @@ public class UpdatePointCollection : MonoBehaviour
             }
             else 
             {
-                carAttributes.mountedGuns.Add(weaponIndex);
-                int slotIndex = carAttributes.mountedGuns.IndexOf(weaponIndex);
-                GameObject gunObj = weaponObjects[weaponIndex];
-                gunObj.transform.parent = carAttributes.transform;
-                gunObj.transform.position = carAttributes.gunPositions[slotIndex].position;
-                gunObj.SetActive(true);
-                gunSlotPanel.transform.GetChild(slotIndex).GetComponentInChildren<TMP_Text>().text = gunObj.GetComponent<GunAttributes>().weaponType;
+                if(slotLimit == carAttributes.mountedGuns.Count)
+                {
+                    foreach (Button button in gunSlotPanel.GetComponentsInChildren<Button>())
+                    {
+                        button.interactable = true;
+                    }
+                }
+                else
+                {
+                    carAttributes.mountedGuns.Add(weaponIndex);
+                    int slotIndex = carAttributes.mountedGuns.IndexOf(weaponIndex);
+                    GameObject gunObj = weaponObjects[weaponIndex];
+                    gunObj.transform.parent = carAttributes.transform;
+                    gunObj.transform.position = carAttributes.gunPositions[slotIndex].position;
+                    gunObj.SetActive(true);
+                    gunSlotPanel.transform.GetChild(slotIndex).GetComponentInChildren<TMP_Text>().text = gunObj.GetComponent<GunAttributes>().weaponType;
+                }
             }
         }
     }
@@ -82,10 +97,20 @@ public class UpdatePointCollection : MonoBehaviour
         gunUpdatePanel.SetActive(false);
     }
 
-    //public void EquipGun(int weaponIndex)
-    //{
-    //    carAttributes.mountedGuns.Add(weaponIndex);
-    //    weaponObjects[weaponIndex].transform.position = carAttributes.gunPositions[carAttributes.mountedGuns.IndexOf(weaponIndex)];
-    //}
+    public void ChangeGun(int slotIndex)
+    {
+        weaponObjects[carAttributes.mountedGuns[slotIndex]].SetActive(false);
+        carAttributes.mountedGuns[slotIndex] = weaponIndex;
+        GameObject gunObj = weaponObjects[weaponIndex];
+        gunObj.transform.parent = carAttributes.transform;
+        gunObj.transform.position = carAttributes.gunPositions[slotIndex].position;
+        gunObj.SetActive(true);
+        gunSlotPanel.transform.GetChild(slotIndex).GetComponentInChildren<TMP_Text>().text = gunObj.GetComponent<GunAttributes>().weaponType;
+
+        foreach (Button button in gunSlotPanel.GetComponentsInChildren<Button>())
+        {
+            button.interactable = false;
+        }
+    }
 
 }

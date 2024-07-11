@@ -11,18 +11,35 @@ public class LevelManager : MonoBehaviour
     {
         CoreGameSignals.Instance.onLevelInitialized += OnLevelInitialized;
         CoreGameSignals.Instance.onLevelRestart += OnLevelRestart;
+        CoreGameSignals.Instance.onGamePause += OnGamePause;
+        CoreGameSignals.Instance.onGameResume += OnGameResume;
 
         
 
     }
 
+
     void OnDisable()
     {
         CoreGameSignals.Instance.onLevelInitialized -= OnLevelInitialized;
         CoreGameSignals.Instance.onLevelRestart -= OnLevelRestart;
+        CoreGameSignals.Instance.onGamePause -= OnGamePause;
+        CoreGameSignals.Instance.onGameResume -= OnGameResume;
 
        
     }
+
+    private void OnGameResume()
+    {
+        Time.timeScale = 1;
+    }
+    private void OnGamePause()
+    {
+        Time.timeScale = 0;
+    }
+
+    
+
 
    
     private void OnLevelRestart()

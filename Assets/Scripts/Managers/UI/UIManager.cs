@@ -1,17 +1,25 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] List<Image> hpImages = new List<Image>();
+
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject gamePanel;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject failPanel;
     [SerializeField] GameObject upgradePanel;
-    [SerializeField] TMP_Text scoreText;
+    [SerializeField] TMP_Text kmText;
+    [SerializeField] TMP_Text fuelText;
     byte currentLevel = 0;
-    float initialScore=0;
-   
+    float _kmInitialScore = 0;
+    float _fuelInitialScore = 0;
+    float currentStage = 2;
+
     void OnEnable()
     {
         Subscribe();
@@ -19,7 +27,7 @@ public class UIManager : MonoBehaviour
 
     void OnDisable()
     {
-         UnSubscribe();
+        UnSubscribe();
     }
 
 
@@ -33,19 +41,57 @@ public class UIManager : MonoBehaviour
         CoreUISignals.Instance.onPausePanel += onPausePanel;
         CoreUISignals.Instance.onLevelFailedPanel += onLevelFailedPanel;
         CoreUISignals.Instance.onUpgradePanel += onUpgradePanel;
-        CoreUISignals.Instance.onGameScoreUpdate += onGameScoreUpdate;
+        CoreUISignals.Instance.onGameScoreTextUpdate += onGameScoreUpdate;
+        CoreUISignals.Instance.onGameFuelPanelUpdate += onGameFuelPanelUpdate;
+        CoreUISignals.Instance.onGameSetHpBarUpdate += onGameSetHpBarUpdate;
+        CoreUISignals.Instance.onGameSetHpBarRestartUpdate += onGameSetHpBarRestartUpdate;
+       
     }
+
+    private void onGameSetHpBarRestartUpdate(byte stageValue)
+    {
+        foreach (var image in hpImages)
+        {
+            image.DOColor(Color.red, 0.5f);
+        }
+    }
+
+    private void onGameSetHpBarUpdate(byte stageValue)
+    {
+
+        hpImages[stageValue].DOColor(Color.white, 0.5f);
+    }
+
+
+    public void GameTest()
+    {
+        CoreUISignals.Instance.onGameSetHpBarUpdate?.Invoke((byte)currentStage);
+        currentStage--;
+        Debug.Log($"stage: {currentStage}");
+
+        if (currentStage == -1)
+        {
+            GameFail();
+        }
+    }
+
+    private void onGameFuelPanelUpdate(float value)
+    {
+        _fuelInitialScore = value;
+        fuelText.text = "Fuel: " + _fuelInitialScore.ToString();
+    }
+
 
     private void onGameScoreUpdate(float value)
     {
-        initialScore = value;
-        scoreText.text = "Score: " + initialScore.ToString();
+        _kmInitialScore = value;
+        kmText.text = "Score: " + _kmInitialScore.ToString();
     }
 
     private void onUpgradePanel()
     {
+        CoreGameSignals.Instance.onGamePause?.Invoke();
         upgradePanel.gameObject.SetActive(true);
-        Time.timeScale = 0;
     }
 
     private void onLevelFailedPanel()
@@ -82,7 +128,7 @@ public class UIManager : MonoBehaviour
         CoreGameSignals.Instance.onLevelInitialized?.Invoke(currentLevel);
         CoreUISignals.Instance.onStartPanel?.Invoke(); // close panel
 
-        CoreUISignals.Instance.onGameScoreUpdate?.Invoke(0);
+
     }
 
     public void GamePause()
@@ -93,6 +139,7 @@ public class UIManager : MonoBehaviour
 
     public void GameResume()
     {
+        CoreGameSignals.Instance.onGameResume?.Invoke();
         pausePanel.gameObject.SetActive(false);
     }
 
@@ -100,42 +147,58 @@ public class UIManager : MonoBehaviour
     {
         CoreGameSignals.Instance.onLevelRestart?.Invoke();
         CoreGameSignals.Instance.onLevelInitialized?.Invoke(currentLevel);
+        CoreGameSignals.Instance.onGameResume?.Invoke();
+        CoreUISignals.Instance.onGameSetHpBarRestartUpdate?.Invoke(2);
         DataManager.Instance.ResetPlayerData();
+        
         pausePanel.gameObject.SetActive(false);
         failPanel.SetActive(false);
+        currentStage = 2;
     }
 
 
     public void GameFail()
     {
         CoreGameSignals.Instance.onLevelFailed?.Invoke();
+        CoreGameSignals.Instance.onGamePause?.Invoke();
     }
 
     public void GameUpgrade()
     {
 
         CoreUISignals.Instance.onUpgradePanel?.Invoke();
+        CoreGameSignals.Instance.onGamePause?.Invoke();
 
     }
 
     public void GameUpgradeOne()
     {
-        CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(15); // player data upgrade HP
+        CoreGameSignals.Instance.onPlayerUpgradeHp?.Invoke(15); // player data upgrade HP
+        CoreGameSignals.Instance.onGameResume?.Invoke();
+
         upgradePanel.SetActive(false);
-        Time.timeScale = 1;
+
     }
     public void GameUpgradeTwo()
     {
-       CoreGameSignals.Instance.onPlayerUpgradeSpeed?.Invoke(5f); // player data upgrade maxSpeed
+        CoreGameSignals.Instance.onPlayerUpgradeSpeed?.Invoke(5f); // player data upgrade maxSpeed
+        CoreGameSignals.Instance.onGameResume?.Invoke();
+
         upgradePanel.SetActive(false);
-         Time.timeScale = 1;
+
     }
 
     public void GameUpgradeThree()
     {
-       // CoreGameSignals.Instance.onPlayerUpgrade?.Invoke(1.5f, 1.5f); // player data upgrade 
+        CoreGameSignals.Instance.onPlayerUpgradeWeapon?.Invoke(1.5f); // player data upgrade 
+        CoreGameSignals.Instance.onGameResume?.Invoke();
+
         upgradePanel.SetActive(false);
-         Time.timeScale = 1;
+
+    }
+    public void GameQuit()
+    {
+        Application.Quit();
     }
 
 
@@ -150,7 +213,8 @@ public class UIManager : MonoBehaviour
         CoreUISignals.Instance.onPausePanel -= onPausePanel;
         CoreUISignals.Instance.onLevelFailedPanel -= onLevelFailedPanel;
         CoreUISignals.Instance.onUpgradePanel -= onUpgradePanel;
-        CoreUISignals.Instance.onGameScoreUpdate -= onGameScoreUpdate;
+        CoreUISignals.Instance.onGameScoreTextUpdate -= onGameScoreUpdate;
+        CoreUISignals.Instance.onGameFuelPanelUpdate -= onGameFuelPanelUpdate;
     }
 
 

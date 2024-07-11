@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public enum UIEventSubscriptionTypes
 {
-    Play, Quit, Pause, Resume, Restart, FailTest, UpgradeTest, Upgrade1, Upgrade2, Upgrade3
+    Play, Quit, Pause, Resume, Restart, FailTest, UpgradeTest, Upgrade1, Upgrade2, Upgrade3,Test
 }
 public class UIEventSubscriber : MonoBehaviour
 {
@@ -38,6 +38,9 @@ public class UIEventSubscriber : MonoBehaviour
             case UIEventSubscriptionTypes.Play:
                 button.onClick.AddListener(_manager.GameStart);
                 break;
+            case UIEventSubscriptionTypes.Quit:
+                button.onClick.AddListener(_manager.GameQuit);
+                break;
             case UIEventSubscriptionTypes.Pause:
                 button.onClick.AddListener(_manager.GamePause);
                 break;
@@ -65,6 +68,9 @@ public class UIEventSubscriber : MonoBehaviour
                 break;
             case UIEventSubscriptionTypes.UpgradeTest: // player collider upgrade signals CoreGameuuıSignals.onPlayerUpgrade
                 button.onClick.AddListener(_manager.GameUpgrade);
+                break;
+            case UIEventSubscriptionTypes.Test:
+                button.onClick.AddListener(_manager.GameTest);
                 break;
 
 

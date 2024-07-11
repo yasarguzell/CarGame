@@ -46,6 +46,7 @@ public class FuelSystem : MonoBehaviour
         if (fuelText != null)
         {
             fuelText.text = "Fuel: " + currentFuel.ToString("F2"); // Yakıt miktarını UI'da göster
+            CoreUISignals.Instance.onGameFuelPanelUpdate?.Invoke(currentFuel);
         }
     }
 

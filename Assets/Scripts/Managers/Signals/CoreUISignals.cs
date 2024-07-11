@@ -13,7 +13,10 @@ public UnityAction onLevelFailedPanel=delegate{};
 public UnityAction onLevelRestartPanel=delegate{};
 public UnityAction onUpgradePanel=delegate{};
 
-public UnityAction<float> onGameScoreUpdate=delegate{};
+public UnityAction<byte> onGameSetHpBarUpdate=delegate{};
+public UnityAction<byte> onGameSetHpBarRestartUpdate=delegate{};
+public UnityAction<float> onGameScoreTextUpdate=delegate{};
+public UnityAction<float> onGameFuelPanelUpdate=delegate{};
 
 
 

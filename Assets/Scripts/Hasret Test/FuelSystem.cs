@@ -60,6 +60,7 @@ public class FuelSystem : MonoBehaviour
         if (collision.gameObject.CompareTag("FuelTank"))
         {
             Refuel(50f); // Yakıt ekle (50 birim)
+            Destroy(collision.gameObject);
         }
     }
 

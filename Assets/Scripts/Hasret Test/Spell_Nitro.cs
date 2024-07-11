@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class Spell_Nitro : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class Spell_Nitro : MonoBehaviour
             if (collision.gameObject.CompareTag("Player"))
             {
                 Destroy(gameObject);    //yok et
-            myButton.GetComponentInChildren<Text>().text = "Nitro";
+            myButton.GetComponentInChildren<TMP_Text>().text = "Nitro";
 
             }
         }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class Spell_Explotion : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);    //yok et
-            myButton.GetComponentInChildren<Text>().text = "Explotion";
+            myButton.GetComponentInChildren<TMP_Text>().text = "Explotion";
 
         }
     }

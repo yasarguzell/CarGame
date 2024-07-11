@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Spells : MonoBehaviour
 {
-    public Button myButton; // Buton referansý
-    public GameObject car; // Araba objesi referansý    
-    private Rigidbody carRigidbody; // Arabanýn Rigidbody bileþeni
+    public Button myButton; // Buton referansï¿½
+    public GameObject car; // Araba objesi referansï¿½    
+    private Rigidbody carRigidbody; // Arabanï¿½n Rigidbody bileï¿½eni
     public ParticleSystem flameParticle;
-    private Text buttonText;
+    private TMP_Text buttonText;
     public ParticleSystem explosionParticle;
     public ParticleSystem thunderParticle1;
     public ParticleSystem thunderParticle2;
     public ParticleSystem thunderParticle3;
     public ParticleSystem thunderParticle4;
     public ParticleSystem thunderParticle5;
-    public float destroyRadius = 100f; // Yok edilecek düþmanlarýn maksimum mesafesi
+    public float destroyRadius = 100f; // Yok edilecek dï¿½ï¿½manlarï¿½n maksimum mesafesi
 
 
     void Start()
@@ -24,18 +25,18 @@ public class Spells : MonoBehaviour
         // Butonun onClick eventine metod ekleme
         myButton.onClick.AddListener(OnButtonClick);
 
-        // Arabanýn Rigidbody bileþenini al
+        // Arabanï¿½n Rigidbody bileï¿½enini al
         carRigidbody = car.GetComponent<Rigidbody>();
      }
 
     void OnButtonClick()
     {
-        // Butonun Text bileþenine eriþim
-        buttonText = myButton.GetComponentInChildren<Text>();
+        // Butonun Text bileï¿½enine eriï¿½im
+        buttonText = myButton.GetComponentInChildren<TMP_Text>();
 
         if (buttonText.text == "Nitro")
         {
-            // Aðýrlýðý yarýya düþür
+            // Aï¿½ï¿½rlï¿½ï¿½ï¿½ yarï¿½ya dï¿½ï¿½ï¿½r
             carRigidbody.mass /= 2;
             flameParticle.Play();
             myButton.interactable = false;
@@ -47,13 +48,13 @@ public class Spells : MonoBehaviour
             explosionParticle.Play();
             myButton.interactable = false;
 
-            // Tüm düþmanlarý bul
+            // Tï¿½m dï¿½ï¿½manlarï¿½ bul
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
             // Karakterin konumu
             Vector3 playerPosition = transform.position;
 
-            // Belirli mesafedeki düþmanlarý yok et
+            // Belirli mesafedeki dï¿½ï¿½manlarï¿½ yok et
             foreach (GameObject enemy in enemies)
             {
                 float distance = Vector3.Distance(playerPosition, enemy.transform.position);
@@ -76,13 +77,13 @@ public class Spells : MonoBehaviour
 
             myButton.interactable = false;
 
-            // Tüm düþmanlarý bul
+            // Tï¿½m dï¿½ï¿½manlarï¿½ bul
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
             // Karakterin konumu
             Vector3 playerPosition = transform.position;
 
-            // Belirli mesafedeki düþmanlarý yok et
+            // Belirli mesafedeki dï¿½ï¿½manlarï¿½ yok et
             foreach (GameObject enemy in enemies)
             {
                 float distance = Vector3.Distance(playerPosition, enemy.transform.position);
@@ -112,7 +113,7 @@ public class Spells : MonoBehaviour
             cooldown -= 1;
         }
 
-        // Aðýrlýðý eski haline getir
+        // Aï¿½ï¿½rlï¿½ï¿½ï¿½ eski haline getir
         carRigidbody.mass *= 2;
         buttonText.text = "Nitro";
         flameParticle.Stop();

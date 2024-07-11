@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class MoveComponent : MonoBehaviour
 {
-   void OnTriggerEnter(Collider other)
-{
-    if(other.gameObject.CompareTag("Player"))
+    void OnTriggerEnter(Collider other)
     {
-         ObjectSpawner.instance.SpawnGround();
-         Debug.Log($"Player spawned");
-       
+        if (other.gameObject.CompareTag("Player"))
+        {
+            ObjectSpawner.instance.SpawnGround();
+            Destroy(other.gameObject);
+            Debug.Log($"Player spawned");
+
+        }
     }
-}
 
 }

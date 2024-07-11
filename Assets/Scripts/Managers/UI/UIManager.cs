@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject upgradePanel;
     [SerializeField] TMP_Text kmText;
     [SerializeField] TMP_Text fuelText;
+
+    [SerializeField] GameObject colorCar;
     byte currentLevel = 0;
     float _kmInitialScore = 0;
     float _fuelInitialScore = 0;
@@ -92,6 +94,7 @@ public class UIManager : MonoBehaviour
     {
         menuPanel.SetActive(false);
         gamePanel.SetActive(true);
+        colorCar.SetActive(false);
 
     }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3296166291712537786}
   - component: {fileID: 4666086720984341792}
   - component: {fileID: 5205935102056926845}
+  - component: {fileID: -3952924576537314052}
   m_Layer: 0
   m_Name: GrenadeLauncherCollectible
   m_TagString: CollectibleWeapon
@@ -99,3 +100,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 1
   cycleLength: 2
+--- !u!135 &-3952924576537314052
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3817078385741484419}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.8285686
+  m_Center: {x: -0.000000014901161, y: 0.15502703, z: 0.40509617}

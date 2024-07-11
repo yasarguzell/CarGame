@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1311068430586441422}
   - component: {fileID: 4527342101937827408}
   - component: {fileID: 4526060751631611471}
+  - component: {fileID: -4736036193546142696}
   m_Layer: 0
   m_Name: SMGCollectible
   m_TagString: CollectibleWeapon
@@ -99,3 +100,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 6
   cycleLength: 2
+--- !u!135 &-4736036193546142696
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5308942641062728208}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.64056873
+  m_Center: {x: 0.004233226, y: 0.1194923, z: 0.08173421}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6184833411785812406}
   - component: {fileID: 961777681145421133}
   - component: {fileID: 9204549456362626798}
+  - component: {fileID: -1141246829241569073}
   m_Layer: 0
   m_Name: FlameThrowerCollectible
   m_TagString: CollectibleWeapon
@@ -100,3 +101,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 0
   cycleLength: 2
+--- !u!135 &-1141246829241569073
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715581256755514986}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.7078497
+  m_Center: {x: 0.003250122, y: 0.20474985, z: 0.51013404}

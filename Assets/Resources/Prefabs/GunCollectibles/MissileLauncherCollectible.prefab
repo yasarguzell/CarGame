@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8248037625091383070}
   - component: {fileID: 8692717859187971116}
   - component: {fileID: 319821929228753894}
+  - component: {fileID: 4681462672109935055}
   m_Layer: 0
   m_Name: MissileLauncherCollectible
   m_TagString: CollectibleWeapon
@@ -102,3 +103,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 4
   cycleLength: 2
+--- !u!135 &4681462672109935055
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7224241386344081003}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.41731554
+  m_Center: {x: 0, y: 0.032636225, z: 0}

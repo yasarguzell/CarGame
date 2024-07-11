@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6104379609008950246}
   - component: {fileID: 6108035652383290531}
   - component: {fileID: 794389356186145940}
+  - component: {fileID: 2775816458875029413}
   m_Layer: 0
   m_Name: HeavyWeightMachineGunCollectible
   m_TagString: CollectibleWeapon
@@ -100,3 +101,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 2
   cycleLength: 2
+--- !u!135 &2775816458875029413
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218664275465290435}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.1508671
+  m_Center: {x: 0.0019036382, y: 0.098572396, z: 0.7396604}

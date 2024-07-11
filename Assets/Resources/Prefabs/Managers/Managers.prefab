@@ -46,12 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9195ab54a196fd4381f78d4c66041e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   menuPanel: {fileID: 0}
   gamePanel: {fileID: 0}
   pausePanel: {fileID: 0}
   failPanel: {fileID: 0}
   upgradePanel: {fileID: 0}
-  scoreText: {fileID: 0}
+  kmText: {fileID: 0}
+  fuelText: {fileID: 0}
 --- !u!114 &1541619891080736625
 MonoBehaviour:
   m_ObjectHideFlags: 0

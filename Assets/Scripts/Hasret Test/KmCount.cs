@@ -39,8 +39,7 @@ public class KmCount : MonoBehaviour
         }
 
         // Kilometre sayacını güncelle
-       odometerText.text = totalDistance.ToString("F2") + " km";
-       CoreUISignals.Instance.onGameScoreTextUpdate?.Invoke(totalDistance);
+        odometerText.text = totalDistance.ToString("F2") + " km";
     }
 
     // Vector3'ü yuvarlama fonksiyonu

@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour
         hpImages[stageValue].DOColor(Color.white, 0.5f);
     }
 
-
+// BUTTON
     public void GameTest()
     {
         CoreUISignals.Instance.onGameSetHpBarUpdate?.Invoke((byte)currentStage);
@@ -150,7 +150,7 @@ public class UIManager : MonoBehaviour
         CoreGameSignals.Instance.onGameResume?.Invoke();
         CoreUISignals.Instance.onGameSetHpBarRestartUpdate?.Invoke(2);
         DataManager.Instance.ResetPlayerData();
-        
+
         pausePanel.gameObject.SetActive(false);
         failPanel.SetActive(false);
         currentStage = 2;

@@ -7,6 +7,7 @@ public class ShooterEnemy : EnemyBase
     [SerializeField] private Transform _projectilePrefab;
     [SerializeField] private Transform _shootingPoint;
     [SerializeField] private ObjectPool _projectilePool;
+    [SerializeField] private AudioSource _source;
 
     public override void Start()
     {
@@ -30,7 +31,7 @@ public class ShooterEnemy : EnemyBase
         patrolPointsParent.transform.SetParent(this.transform);
 
 
-        Vector3 offset = target.position - transform.forward * (attackDistance - .5f);
+        Vector3 offset = nearestTarget.position - transform.forward * (attackDistance - .5f);
         agent.SetDestination(offset);
 
         isPatrolling = false;
@@ -56,7 +57,7 @@ public class ShooterEnemy : EnemyBase
     public override void Attack()
     {
         //Debug.Log("Attacking");
-        transform.LookAt(target.transform.position);
+        transform.LookAt(nearestTarget.transform.position);
         anim.SetBool(ANIM_ATTACK_BOOL_NAME, true); //Damage transactions in animation event 
     }
 
@@ -76,10 +77,12 @@ public class ShooterEnemy : EnemyBase
             projectile.Initialize(_projectilePool);
 
             // Calculate the direction to the target
-            Vector3 directionToTarget = (target.position - _shootingPoint.position).normalized;
+            Vector3 directionToTarget = (nearestTarget.position - _shootingPoint.position).normalized;
 
             // Launch the projectile towards the target
             projectile.Throw(directionToTarget);
+
+            _source.Play();
         }
     }
     private void OnTriggerEnter(Collider other)

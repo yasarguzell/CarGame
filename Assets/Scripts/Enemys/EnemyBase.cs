@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
     [SerializeField] protected int health;
 
     [Header("Target Settings")]
-    [SerializeField] protected Transform target;
+    protected Transform nearestTarget;
+    [SerializeField] protected Transform targetsParent;
 
     [Header("Movement Settings")]
     [SerializeField] protected float rotationSpeed = 360f;
@@ -37,18 +39,18 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
-        if (target == null)
-        {
-            Debug.LogError("Target object is not assigned!");
-        }
+
     }
     public virtual void Update()
     {
         if (isDead)
             return;
 
-        distance = Vector3.Distance(transform.position, target.position);
-
+        nearestTarget = FindNearestTarget();
+        if (nearestTarget != null)
+        {
+            distance = Vector3.Distance(transform.position, nearestTarget.position);
+        }
         if (distance > chaseDistance)
         {
             Patrol();
@@ -64,6 +66,23 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
 
 
 
+    }
+    Transform FindNearestTarget()
+    {
+        Transform closestTarget = null;
+        float minDistance = Mathf.Infinity;
+
+        foreach (Transform target in targetsParent)
+        {
+            float distance = Vector3.Distance(transform.position, target.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestTarget = target;
+            }
+        }
+
+        return closestTarget;
     }
     public abstract void Chase();
 
@@ -96,8 +115,19 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
             agent.enabled = false;
             anim.SetTrigger(ANIM_DIE_TRIGGER_NAME);
             isDead = true;
+
         }
 
     }
-   
+    public void DieAnimEvent()
+    {
+        this.transform.DOScale(Vector3.zero, 1).OnComplete(() =>
+        {
+            print("Ölüm animasyonu bittikten 1 saniyes sonra setacitve false oluyor.");
+            transform.parent.gameObject.SetActive(false);
+           
+        }
+        );
+    }
+
 }

@@ -47,7 +47,7 @@ public class MeleeEnemy : EnemyBase
         patrolPointsParent.transform.SetParent(this.transform);
 
 
-        Vector3 offset = target.position - transform.forward * 1.0f;
+        Vector3 offset = nearestTarget.position - transform.forward * 1.0f;
         agent.SetDestination(offset);
 
         isPatrolling = false;
@@ -56,7 +56,7 @@ public class MeleeEnemy : EnemyBase
     public override void Attack()
     {
         //Debug.Log("Attacking");
-        transform.LookAt(target.transform.position);
+        transform.LookAt(nearestTarget.transform.position);
         anim.SetBool(ANIM_ATTACK_BOOL_NAME, true); //Damage transactions in animation event 
     }
 

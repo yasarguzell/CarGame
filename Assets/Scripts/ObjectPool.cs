@@ -12,6 +12,7 @@ public class ObjectPool : MonoBehaviour
         {
             Transform obj = _pool.Dequeue();
             obj.gameObject.SetActive(true);
+            obj.transform.localScale = new Vector3(0.1f, .1f, .1f);
             return obj;
         }
         else

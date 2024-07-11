@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -41,6 +42,7 @@ public class ZombileShooterProjectile : MonoBehaviour
         _rb.velocity = Vector3.zero; // Merminin hýzýný sýfýrla
         _rb.angularVelocity = Vector3.zero; // Merminin açýsal hýzýný sýfýrla
         _pool.ReturnToPool(transform);
+       
     }
 
     public void Throw(Vector3 direction)

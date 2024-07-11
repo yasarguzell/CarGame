@@ -111,25 +111,19 @@ public class CarMovementController : MonoBehaviour
 
     private void StopRotationOnZAndXAxis()
     {
-        _rb.angularVelocity = new Vector3(_rb.angularVelocity.x, _rb.angularVelocity.y, 0);
-
-        if (_transform.rotation.eulerAngles.x > 80)
+        if (_transform.rotation.eulerAngles.x > 30 || _transform.rotation.eulerAngles.z > 0)
         {
-            float x = Mathf.Abs(_transform.rotation.eulerAngles.x) > 80 ? 0 : _transform.rotation.eulerAngles.x;
-            float z = Mathf.Abs(_transform.rotation.eulerAngles.z) > 0 ? 0 : _transform.rotation.eulerAngles.z;
-            _rb.angularVelocity = new Vector3(0, _rb.angularVelocity.y, 0);
+            float xAngle = _transform.rotation.eulerAngles.x;
+            float angularVelX = _rb.angularVelocity.x;
+            if (_transform.rotation.eulerAngles.x > 30)
+            {
+                xAngle = 0;
+                angularVelX = 0;
+            }
+            _rb.angularVelocity = new Vector3(angularVelX, _rb.angularVelocity.y, 0);
             Quaternion quaternion = new Quaternion
             {
-                eulerAngles = new Vector3(x, _transform.rotation.eulerAngles.y, z)
-            };
-            _rb.MoveRotation(quaternion);
-        }
-
-        if (Mathf.Abs(_transform.rotation.eulerAngles.z) > 0)
-        {
-            Quaternion quaternion = new Quaternion
-            {
-                eulerAngles = new Vector3(_transform.rotation.eulerAngles.x, _transform.rotation.eulerAngles.y, 0)
+                eulerAngles = new Vector3(xAngle, _transform.rotation.eulerAngles.y, 0)
             };
             _rb.MoveRotation(quaternion);
         }

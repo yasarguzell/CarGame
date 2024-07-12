@@ -2,22 +2,16 @@ using System;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
-
 {
     GameObject level;
 
-  
     void OnEnable()
     {
         CoreGameSignals.Instance.onLevelInitialized += OnLevelInitialized;
         CoreGameSignals.Instance.onLevelRestart += OnLevelRestart;
         CoreGameSignals.Instance.onGamePause += OnGamePause;
         CoreGameSignals.Instance.onGameResume += OnGameResume;
-
-        
-
     }
-
 
     void OnDisable()
     {
@@ -25,8 +19,6 @@ public class LevelManager : MonoBehaviour
         CoreGameSignals.Instance.onLevelRestart -= OnLevelRestart;
         CoreGameSignals.Instance.onGamePause -= OnGamePause;
         CoreGameSignals.Instance.onGameResume -= OnGameResume;
-
-       
     }
 
     private void OnGameResume()
@@ -34,7 +26,9 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1;
         foreach (AudioSource audioSource in allSources)
         {
-            audioSource.Play();
+            if (audioSource.name == "NewCar") { 
+                audioSource.Play();
+            }
         }
     }
     private void OnGamePause()
@@ -47,24 +41,18 @@ public class LevelManager : MonoBehaviour
 
     void StopAllSounds()
     {
-        // Scene içindeki tüm AudioSource bileşenlerini bul
         AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
         allSources = allAudioSources;
-
-        // Her bir AudioSource'u durdur
         foreach (AudioSource audioSource in allAudioSources)
         {
             audioSource.Stop();
         }
     }
 
-
-
     private void OnLevelRestart()
     {
         Debug.Log($"Scene res");
         Destroy(level);
-
     }
 
     private void OnLevelInitialized(byte _levelIndex)
@@ -72,7 +60,4 @@ public class LevelManager : MonoBehaviour
         Debug.Log($"Level load");
         level = Instantiate(Resources.Load<GameObject>($"Prefabs/LevelPrefabs/level {_levelIndex}"));
     }
-
-
-
 }

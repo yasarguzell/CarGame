@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject upgradePanel;
     [SerializeField] TMP_Text kmText;
     [SerializeField] TMP_Text fuelText;
+    [SerializeField] Image fuelImage;
 
     [SerializeField] GameObject colorCar;
     byte currentLevel = 0;
@@ -60,7 +61,7 @@ public class UIManager : MonoBehaviour
     {
         if (stageValue < hpImages.Count)
         {
-            hpImages[stageValue].DOColor(Color.green, 0.5f);
+            hpImages[stageValue].DOColor(Color.white, 0.5f);
             Debug.Log($"Hp: {stageValue}");
         }
     }
@@ -68,6 +69,8 @@ public class UIManager : MonoBehaviour
     {
         _fuelInitialScore = value;
         fuelText.text = "Fuel: " + _fuelInitialScore.ToString();
+
+        fuelImage.fillAmount = _fuelInitialScore / 100;
     }
 
 

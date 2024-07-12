@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: Missile Launcher
+  image: {fileID: 21300000, guid: 2afeeeba943eca7469867912bd05dcaf, type: 3}
   gunDamageIndex: 0
   gunShootingSpeedIndex: 0
   gunChargerCapacityIndex: 0

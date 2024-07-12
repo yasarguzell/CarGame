@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: Sub Machine Gun
+  image: {fileID: 21300000, guid: 838b7f120fab5ba47807eac56023f83f, type: 3}
   gunDamageIndex: 0
   gunShootingSpeedIndex: 0
   gunChargerCapacityIndex: 0

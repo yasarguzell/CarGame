@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: Mid Weight Machine Gun
+  image: {fileID: 21300000, guid: e735fb887ad7e5c45ac0879a23fa7906, type: 3}
   gunDamageIndex: 0
   gunShootingSpeedIndex: 0
   gunChargerCapacityIndex: 0

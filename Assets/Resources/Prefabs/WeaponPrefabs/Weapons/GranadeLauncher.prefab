@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: Granade Launcher
+  image: {fileID: 21300000, guid: e9fc16331fea34743becf8e565646b0c, type: 3}
   gunDamageIndex: 0
   gunShootingSpeedIndex: 0
   gunChargerCapacityIndex: 0

@@ -40,7 +40,7 @@ public class Spells : MonoBehaviour
             carRigidbody.mass /= 2;
             flameParticle.Play();
             myButton.interactable = false;
-            StartCoroutine(ResetNitro(10));
+            StartCoroutine(ResetNitro(4));
             
         }
         else if (buttonText.text == "Explotion")
@@ -105,49 +105,41 @@ public class Spells : MonoBehaviour
     }
     IEnumerator ResetNitro(int cooldown)
     {
-        
+        yield return new WaitForSeconds(4);
+        carRigidbody.mass *= 2;
+        flameParticle.Stop();
         while (cooldown>0)
         {
             buttonText.text = cooldown.ToString();
             yield return new WaitForSeconds(1);
             cooldown -= 1;
         }
-
-        // A��rl��� eski haline getir
-        carRigidbody.mass *= 2;
+        yield return new WaitForSeconds(6);
         buttonText.text = "Nitro";
-        flameParticle.Stop();
         myButton.interactable = true;
     }
 
     IEnumerator ResetExplotion(int cooldown)
     {
-
         while (cooldown > 0)
         {
             buttonText.text = cooldown.ToString();
             yield return new WaitForSeconds(1);
             cooldown -= 1;
-        }
-                
+        }                
         buttonText.text = "Explotion";        
         myButton.interactable = true;
     }
 
     IEnumerator ResetThunder(int cooldown)
     {
-
         while (cooldown > 0)
         {
             buttonText.text = cooldown.ToString();
             yield return new WaitForSeconds(1);
             cooldown -= 1;
         }
-
         buttonText.text = "Thunder";
         myButton.interactable = true;
     }
-
-
-
 }

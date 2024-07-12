@@ -10,6 +10,8 @@ TagManager:
   - CollectibleWeapon
   - Ground
   - Spell_Nitro
+  - DamagePMeele
+  - DamagePShooting
   layers:
   - Default
   - TransparentFX

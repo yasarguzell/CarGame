@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,8 +50,20 @@ public class ObjectPooler : MonoBehaviour
 
             poolDictionary.Add(pool.tag, objectPool);
         }
-       // ObjectSpawner.instance.SpawnGround();
+        CoreGameSignals.Instance.onLevelRestart += OnLevelRestart;
+        // ObjectSpawner.instance.SpawnGround();
     }
+    List<GameObject> objects = new List<GameObject>();
+
+    private void OnLevelRestart()
+    {
+        for (int i = 0;i < objects.Count; i++)
+        {
+            objects[i]?.SetActive(true);
+        }
+        objects.Clear();
+    }
+
 
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
@@ -61,6 +74,7 @@ public class ObjectPooler : MonoBehaviour
         }
 
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
+        objects.Add(objectToSpawn);
 
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
@@ -71,4 +85,5 @@ public class ObjectPooler : MonoBehaviour
 
         return objectToSpawn;
     }
+
 }

@@ -61,4 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87cbbc0e0b2d06c4484fff9646601a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundSpawnDistance: -1050
+  groundSpawnDistance: -510
+  playerTransform: {fileID: 0}
+  level_index: 1

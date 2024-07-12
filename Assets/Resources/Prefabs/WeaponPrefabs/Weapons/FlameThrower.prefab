@@ -188,6 +188,7 @@ MonoBehaviour:
   rotationSpeed: 40
   differenceThreshold: 2
   trackOffset: {x: 0, y: 0.7, z: 0}
+  trackLimit: 40
 --- !u!114 &1750767426938932414
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4562098830767597722}
   - component: {fileID: 1541619891080736625}
   - component: {fileID: 4837070491383479677}
+  - component: {fileID: 6535289785613272805}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -57,6 +58,8 @@ MonoBehaviour:
   upgradePanel: {fileID: 0}
   kmText: {fileID: 0}
   fuelText: {fileID: 0}
+  fuelImage: {fileID: 0}
+  colorCar: {fileID: 0}
 --- !u!114 &1541619891080736625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,3 +93,15 @@ MonoBehaviour:
     playerGunShootingSpeed: 0
     playerChargerCapacity: 0
     playerScore: 0
+--- !u!114 &6535289785613272805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8111107150372146625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479eb24187fe4f4458c974daad61222d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

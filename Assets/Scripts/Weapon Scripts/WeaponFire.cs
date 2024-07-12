@@ -13,16 +13,28 @@ public class WeaponFire : Weapon
     [SerializeField][Range(0.0f, 1.0f)] float exitVelocityRandomness = 0f;
     [SerializeField][Range(0.0f, 1.0f)] float directionRandomness = 0f;
     [SerializeField] bool isDirectFire = false;
+    [Space()]
+    [Header("Weapon Sound")]
+    [SerializeField] AudioSource audioSource;
 
     private WeaponTargetLock weaponTargetLock;
     private bool isFireOn = true;
     private float lastFireTime = 0f;
+    private float startVolume;
+
 
     void Start()
     {
         weaponTargetLock = this.transform.GetComponent<WeaponTargetLock>();
+        startVolume = audioSource.volume;
+        audioSource.volume = 0f;
+    }
 
-        StartCoroutine(FireCoroutine());
+    private void Update()
+    {
+        isFireOn = weaponTargetLock.targetTransform != null;
+
+        CheckFire();
     }
 
     void Fire()
@@ -56,18 +68,23 @@ public class WeaponFire : Weapon
         }
     }
 
-    IEnumerator FireCoroutine()
+    void CheckFire()
     {
-        while (isFireOn)
+        if (isFireOn)
         {
             bool isOnCooldown = (Time.time - lastFireTime) < (1 / fireRate);
 
-            if (!isOnCooldown && weaponTargetLock.targetTransform)
+            if (!isOnCooldown)
             {
                 Fire();
             }
 
-            yield return new WaitForEndOfFrame();
+
+            audioSource.volume = Mathf.Lerp(audioSource.volume, startVolume, 0.3f);
+        }
+        else
+        {
+            audioSource.volume = Mathf.Lerp(audioSource.volume, 0f, 0.3f);
         }
     }
 }

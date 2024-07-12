@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class GunAttributes : MonoBehaviour
 {
     public string weaponType;
+    public Sprite image;
 
     private int[] gunDamages = new int[] { 1, 2, 3 };
     public int gunDamageIndex = 0;

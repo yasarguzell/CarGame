@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 'Shotgun '
+  image: {fileID: 21300000, guid: 59ce8a876fa6e8043a67a01efca12f01, type: 3}
   gunDamageIndex: 0
   gunShootingSpeedIndex: 0
   gunChargerCapacityIndex: 0

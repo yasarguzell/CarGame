@@ -32,16 +32,34 @@ public class LevelManager : MonoBehaviour
     private void OnGameResume()
     {
         Time.timeScale = 1;
+        foreach (AudioSource audioSource in allSources)
+        {
+            audioSource.Play();
+        }
     }
     private void OnGamePause()
     {
         Time.timeScale = 0;
+        StopAllSounds();
     }
 
-    
+    private AudioSource[] allSources;
+
+    void StopAllSounds()
+    {
+        // Scene içindeki tüm AudioSource bileşenlerini bul
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+        allSources = allAudioSources;
+
+        // Her bir AudioSource'u durdur
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Stop();
+        }
+    }
 
 
-   
+
     private void OnLevelRestart()
     {
         Debug.Log($"Scene res");

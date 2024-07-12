@@ -1,3 +1,4 @@
+using CarGame.Car;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
@@ -131,6 +132,15 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
            
         }
         );
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            Die();
+            other.GetComponent<CarController>().TakeDamage(1);
+        }
     }
 
 }

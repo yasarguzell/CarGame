@@ -4,7 +4,7 @@ namespace CarGame.Car
 {
     public class CarController : MonoBehaviour, IHealth
     {
-        [SerializeField] private int _initialHealth = 3;
+        [SerializeField] private int _initialHealth = 2;
         [SerializeField] private float _protectionTimeInterval = 3;
         [SerializeField] private bool _isDamagable = true;
         private int _health;
@@ -26,8 +26,8 @@ namespace CarGame.Car
 
         private void DecreaseHealth()
         {
-            CoreUISignals.Instance.onGameSetHpBarUpdate?.Invoke((byte)_health);
             TakeDamage(1);
+            CoreUISignals.Instance.onGameSetHpBarUpdate?.Invoke((byte)_health);
         }
 
         private void EndProtection()
@@ -49,7 +49,11 @@ namespace CarGame.Car
         {
             if (_health > 0)
                 return;
-            CoreGameSignals.Instance.onLevelFailed?.Invoke();
+            if (_health == -1)
+            {
+
+                CoreGameSignals.Instance.onLevelFailed?.Invoke();
+            }
             Die();
 
         }

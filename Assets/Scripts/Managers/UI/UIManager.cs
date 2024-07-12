@@ -58,8 +58,11 @@ public class UIManager : MonoBehaviour
 
     private void onGameSetHpBarUpdate(byte stageValue)
     {
-
-        hpImages[stageValue].DOColor(Color.white, 0.5f);
+        if (stageValue < hpImages.Count)
+        {
+            hpImages[stageValue].DOColor(Color.white, 0.5f);
+            Debug.Log($"Hp: {stageValue}");
+        }
     }
     private void onGameFuelPanelUpdate(float value)
     {

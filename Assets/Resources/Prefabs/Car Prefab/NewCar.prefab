@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7806014901700094386}
   m_Layer: 0
   m_Name: DamagePointsShooting
-  m_TagString: Untagged
+  m_TagString: DamagePShooting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 7016475415158651469}
   m_Layer: 0
   m_Name: DamagePointsMelee
-  m_TagString: Untagged
+  m_TagString: DamagePMeele
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

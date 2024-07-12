@@ -71,7 +71,10 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
     {
         Transform closestTarget = null;
         float minDistance = Mathf.Infinity;
+        if (targetsParent)
+        {
 
+        
         foreach (Transform target in targetsParent)
         {
             float distance = Vector3.Distance(transform.position, target.position);
@@ -81,7 +84,7 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
                 closestTarget = target;
             }
         }
-
+        }
         return closestTarget;
     }
     public abstract void Chase();

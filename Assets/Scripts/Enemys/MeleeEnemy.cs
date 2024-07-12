@@ -9,17 +9,15 @@ public class MeleeEnemy : EnemyBase
     public override void Start()
     {
         base.Start();
-        targetsParent = GameObject.FindGameObjectWithTag("DamagePMeele").transform;
     }
     public override void Update()
     {
         base.Update();
-
-        //Test
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (targetsParent == null)
         {
-            TakeDamage(10);
+            targetsParent = GameObject.FindGameObjectWithTag("DamagePMeele").transform;           
         }
+            
     }
     public override void Patrol()
     {

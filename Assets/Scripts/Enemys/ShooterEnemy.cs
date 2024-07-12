@@ -12,17 +12,18 @@ public class ShooterEnemy : EnemyBase
     public override void Start()
     {
         base.Start();
-        targetsParent = GameObject.FindGameObjectWithTag("DamagePShooting").transform;
-        Debug.LogError(targetsParent + ""+ GameObject.FindGameObjectWithTag("DamagePShooting").name);
+
+
     }
     public override void Update()
     {
-        base.Update();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        base.Update();
+        if (targetsParent == null)
         {
-            TakeDamage(10);
+            targetsParent = GameObject.FindGameObjectWithTag("DamagePShooting").transform;
         }
+
     }
     public override void Chase()
     {

@@ -338,7 +338,7 @@ MonoBehaviour:
   exitVelocityRandomness: 0.333
   directionRandomness: 0.654
   isDirectFire: 0
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 6668721901182233002}
 --- !u!114 &-718287367188964576
 MonoBehaviour:
   m_ObjectHideFlags: 0

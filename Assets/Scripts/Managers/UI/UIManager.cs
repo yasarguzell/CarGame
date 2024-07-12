@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour
     {
         if (stageValue < hpImages.Count)
         {
-            hpImages[stageValue].DOColor(Color.white, 0.5f);
+            hpImages[stageValue].DOColor(Color.green, 0.5f);
             Debug.Log($"Hp: {stageValue}");
         }
     }

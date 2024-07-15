@@ -24,11 +24,12 @@ public class ObjectSpawner : MonoBehaviour
         level_index = 1;
     }
     
+    private float anotherPosition = 0;
     public void SpawnGround()
     {
-        Vector3 spawnPosition = new Vector3(0, 0, playerTransform.position.z + groundSpawnDistance);
+        anotherPosition += groundSpawnDistance;
+        Vector3 spawnPosition = new Vector3(0, 0, playerTransform.position.z + anotherPosition);
         ObjectPooler.Instance.SpawnFromPool("Road" + level_index, spawnPosition, Quaternion.identity);
-        spawnPosition += new Vector3(0,0,groundSpawnDistance);
 
         if (level_index != 5)
         {

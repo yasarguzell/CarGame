@@ -14606,9 +14606,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8111107150372146625, guid: 7bb3b1159dc68234c9b9862d0234f5c3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 620911207}
-    - targetCorrespondingSourceObject: {fileID: 8111107150372146625, guid: 7bb3b1159dc68234c9b9862d0234f5c3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 620911213}
   m_SourcePrefab: {fileID: 100100000, guid: 7bb3b1159dc68234c9b9862d0234f5c3, type: 3}
 --- !u!1001 &534700868
@@ -18364,18 +18361,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8111107150372146625, guid: 7bb3b1159dc68234c9b9862d0234f5c3, type: 3}
   m_PrefabInstance: {fileID: 533078688}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &620911207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620911202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 479eb24187fe4f4458c974daad61222d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &620911213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18383,13 +18368,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620911202}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3da4f33c4102b064f99c5d4edff3b840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   menuMusic: {fileID: 0}
   gameContent: {fileID: 0}
+--- !u!114 &620911214 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6535289785613272805, guid: 7bb3b1159dc68234c9b9862d0234f5c3, type: 3}
+  m_PrefabInstance: {fileID: 533078688}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620911202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479eb24187fe4f4458c974daad61222d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &629037867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34439,7 +34435,7 @@ PrefabInstance:
     - target: {fileID: 829211851691676521, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 620911207}
+      objectReference: {fileID: 620911214}
     - target: {fileID: 829211851691676521, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -34931,6 +34927,34 @@ PrefabInstance:
     - target: {fileID: 5678215522728916363, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138925728233910242, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138925728233910242, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138925728233910242, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 620911214}
+    - target: {fileID: 6138925728233910242, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138925728233910242, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Quit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138925728233910242, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuitGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6138925728233910242, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6256211090092783897, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
       propertyPath: m_SizeDelta.x

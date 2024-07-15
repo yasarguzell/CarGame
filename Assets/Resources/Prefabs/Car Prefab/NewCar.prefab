@@ -210,7 +210,6 @@ GameObject:
   - component: {fileID: 523093990990430331}
   - component: {fileID: 4703942623374261056}
   - component: {fileID: 2601141667355881143}
-  - component: {fileID: 8817096914898356931}
   - component: {fileID: 5324555219790509480}
   m_Layer: 0
   m_Name: NewCar
@@ -464,27 +463,6 @@ MonoBehaviour:
   minPitch: 1
   maxPitch: 3
   maxSpeed: 5
---- !u!65 &8817096914898356931
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7667007860134053353}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.3365173, y: 1.3767828, z: 4.505388}
-  m_Center: {x: 0, y: 0.6779296, z: 0.0774672}
 --- !u!82 &5324555219790509480
 AudioSource:
   m_ObjectHideFlags: 0

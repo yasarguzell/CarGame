@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
     private void onGameFuelPanelUpdate(float value)
     {
         _fuelInitialScore = value;
-        fuelText.text = "Fuel: " + _fuelInitialScore.ToString();
+        fuelText.text = "Fuel: " + (int)_fuelInitialScore;//.ToString();
 
         fuelImage.fillAmount = _fuelInitialScore / 100;
     }
@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
     private void onGameScoreUpdate(float value)
     {
         _kmInitialScore = value;
-        kmText.text = "Score: " + _kmInitialScore.ToString();
+        kmText.text = "Score: " + (int)_kmInitialScore;//.ToString();
     }
 
     private void onUpgradePanel()

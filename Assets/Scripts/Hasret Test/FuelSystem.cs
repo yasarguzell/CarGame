@@ -47,7 +47,7 @@ public class FuelSystem : MonoBehaviour
     {
         if (fuelText != null)
         {
-            fuelText.text = "Fuel: " + currentFuel.ToString("F2"); // Yakıt miktarını UI'da göster
+            fuelText.text = "Fuel: " + (int)currentFuel;//.ToString("F2"); // Yakıt miktarını UI'da göster
         }
     }
 
@@ -60,7 +60,7 @@ public class FuelSystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("FuelTank"))
         {
-            Refuel(50f); // Yakıt ekle (50 birim)
+            Refuel(300f); // Yakıt ekle (50 birim)
             Destroy(collision.gameObject);
         }
     }

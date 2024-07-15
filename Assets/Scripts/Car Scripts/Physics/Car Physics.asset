@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Car Physics
   m_EditorClassIdentifier: 
   AccelerationForce: 80000
-  MaxSpeed: 20
+  MaxSpeed: 15
   SteeringConst: 1
   TurnSpeedCurve:
     serializedVersion: 2

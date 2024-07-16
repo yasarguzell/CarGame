@@ -66,7 +66,7 @@ Oyunun teması hakkında konuşurken bir ekip arkadaşımız Adventure time ile 
 
     * karakter tasarımı kısmında art ve designer ekibi olarak elinde yay bulunması kararı alındı. Bü yüzden karakterin robin hood vari bir karakter olması fikrini aldık.
 
-    * <img width="100" height="130" src="Readme images/Player.png">
+    * <img width="100" height="40" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/Resources/Prefabs/WeaponPrefabs/WeaponIcons/flamegun.png">
 
 
 

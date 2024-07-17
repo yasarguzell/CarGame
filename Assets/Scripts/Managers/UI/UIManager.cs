@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
         _fuelInitialScore = value;
         fuelText.text = "Fuel: " + (int)_fuelInitialScore;//.ToString();
 
-        fuelImage.fillAmount = _fuelInitialScore / 200;
+        fuelImage.fillAmount = _fuelInitialScore / 300;
     }
 
 

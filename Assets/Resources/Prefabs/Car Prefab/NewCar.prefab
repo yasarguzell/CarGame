@@ -282,7 +282,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!114 &5631836277023721056
 MonoBehaviour:
@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75dff57ba81784a6caea1acf3b0daf4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _downForce: 300
   _carPhysics: {fileID: 11400000, guid: f4f35c766abc241b4af2e19a16fa54a5, type: 2}
   _velocity: 0
   _accelerationForce: 0
@@ -374,6 +375,7 @@ MonoBehaviour:
   _initialHealth: 3
   _protectionTimeInterval: 3
   _isDamagable: 1
+  _virtualCamera: {fileID: 0}
 --- !u!114 &6217182229647167397
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System;
 using System.Security.Cryptography.X509Certificates;
+using DG.Tweening;
 using UnityEngine;
 
 public class CarMovementController : MonoBehaviour
@@ -7,7 +8,8 @@ public class CarMovementController : MonoBehaviour
     [Header("Car Settings SO")]
     [SerializeField] private CarPhysicsSO _carPhysics;
     [Header("Current Car Speed - Readonly")]
-    /*[SerializeField]*/ public float _velocity;
+    /*[SerializeField]*/
+    public float _velocity;
 
     [Header("Acceleration Settings")]
     [SerializeField] private float _accelerationForce;
@@ -21,6 +23,11 @@ public class CarMovementController : MonoBehaviour
     [SerializeField] private FixedJoystick Joystick;
     [SerializeField] private Transform[] _rearWheels;
     [SerializeField] private Transform[] _frontWheels;
+
+    // Downforce settings
+    private float _rearRestLenght = 0.67f;
+    private float _frontRestLenght = 0.58f;
+    [SerializeField] private float _downForce = 3000;
 
     public float MaxSpeed { get { return _maxSpeed; } }
 
@@ -48,7 +55,7 @@ public class CarMovementController : MonoBehaviour
         frw
     }
 
-   
+
     private void OnPlayerSpeedUpgrade(float value)
     {
         _maxSpeed += value;
@@ -79,6 +86,21 @@ public class CarMovementController : MonoBehaviour
 
     void FixedUpdate()
     {
+        foreach (Transform front in _frontWheels)
+        {
+            if (!Physics.Raycast(front.position, -_transform.up, _frontRestLenght))
+            {
+                _rb.AddForceAtPosition(Vector3.down * _downForce, front.position);
+            }
+        }
+        foreach (Transform rear in _rearWheels)
+        {
+            if (!Physics.Raycast(rear.position, -_transform.up, _rearRestLenght))
+            {
+                _rb.AddForceAtPosition(Vector3.down * _downForce, rear.position);
+            }
+        }
+
         _velocity = _rb.velocity.magnitude;
 
         _rb.drag = _isGrounded ? 1 : 0;
@@ -107,7 +129,7 @@ public class CarMovementController : MonoBehaviour
 
     private void StopRotationOnZAndXAxis()
     {
-        if (_transform.rotation.eulerAngles.x > 30 || _transform.rotation.eulerAngles.z > 0)
+        if (_transform.rotation.eulerAngles.x > 120 || _transform.rotation.eulerAngles.z > 120)
         {
             float xAngle = _transform.rotation.eulerAngles.x;
             float angularVelX = _rb.angularVelocity.x;
@@ -142,11 +164,11 @@ public class CarMovementController : MonoBehaviour
 
     private void CheckIsGrounded(out bool isGrounded)
     {
-        isGrounded = Physics.Raycast(_transform.position + _transform.up * 0.5f, -_transform.up, 1f);
+        isGrounded = Physics.Raycast(_transform.position + _transform.up * 0.5f, -_transform.up, 2f);
         if (isGrounded)
-            Debug.DrawRay(_transform.position + _transform.up * 0.5f, -_transform.up, Color.green, 1f);
+            Debug.DrawRay(_transform.position + _transform.up * 0.5f, -_transform.up, Color.green, 2f);
         else
-            Debug.DrawRay(_transform.position + _transform.up * 0.5f, -_transform.up, Color.red, 1f);
+            Debug.DrawRay(_transform.position + _transform.up * 0.5f, -_transform.up, Color.red, 2f);
     }
 
     void ApplySteeringRotationToWheelMeshes()

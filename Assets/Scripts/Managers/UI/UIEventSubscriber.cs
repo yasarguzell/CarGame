@@ -50,24 +50,6 @@ public class UIEventSubscriber : MonoBehaviour
             case UIEventSubscriptionTypes.Restart:
                 button.onClick.AddListener(_manager.GameRestart);
                 break;
-            case UIEventSubscriptionTypes.Upgrade1:
-                button.onClick.AddListener(_manager.GameUpgradeOne);
-                break;
-            case UIEventSubscriptionTypes.Upgrade2:
-                button.onClick.AddListener(_manager.GameUpgradeTwo);
-                break;
-            case UIEventSubscriptionTypes.Upgrade3:
-                button.onClick.AddListener(_manager.GameUpgradeThree);
-                break;
-
-
-
-            // test buttons
-            
-            case UIEventSubscriptionTypes.UpgradeTest: // player collider upgrade signals CoreGameuuıSignals.onPlayerUpgrade
-                button.onClick.AddListener(_manager.GameUpgrade);
-                break;
-           
 
 
         }
@@ -92,16 +74,6 @@ public class UIEventSubscriber : MonoBehaviour
             case UIEventSubscriptionTypes.Restart:
                 button.onClick.RemoveListener(_manager.GameRestart);
                 break;
-            case UIEventSubscriptionTypes.Upgrade1:
-                button.onClick.RemoveListener(_manager.GameUpgradeOne);
-                break;
-            case UIEventSubscriptionTypes.Upgrade2:
-                button.onClick.RemoveListener(_manager.GameUpgradeTwo);
-                break;
-            case UIEventSubscriptionTypes.Upgrade3:
-                button.onClick.RemoveListener(_manager.GameUpgradeThree);
-                break;
-
 
         }
     }

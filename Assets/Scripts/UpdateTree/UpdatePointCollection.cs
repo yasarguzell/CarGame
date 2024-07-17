@@ -31,6 +31,7 @@ public class UpdatePointCollection : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             carUpdatePanel.SetActive(true);
+            CoreGameSignals.Instance.onGamePause?.Invoke();
         }
         if(other.tag == "CollectibleWeapon")
         {
@@ -39,6 +40,7 @@ public class UpdatePointCollection : MonoBehaviour
             if (carAttributes.mountedGuns.Contains(weaponIndex))
             {
                 gunUpdatePanel.SetActive(true);
+                CoreGameSignals.Instance.onGamePause?.Invoke();
                 gunAttributes = weaponObjects[weaponIndex].GetComponent<GunAttributes>();
             }
             else 
@@ -80,6 +82,7 @@ public class UpdatePointCollection : MonoBehaviour
             carAttributes.Defense++;
         }
         carUpdatePanel.SetActive(false);
+        CoreGameSignals.Instance.onGameResume?.Invoke();
     }
     public void SetGunAttributes(int attributeIndex)
     {
@@ -96,6 +99,7 @@ public class UpdatePointCollection : MonoBehaviour
             gunAttributes.GunChargerCapacity++;
         }
         gunUpdatePanel.SetActive(false);
+        CoreGameSignals.Instance.onGameResume?.Invoke();
     }
 
     public void ChangeGun(int slotIndex)

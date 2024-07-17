@@ -44,8 +44,8 @@ public class DataManager : MonoBehaviour
 
     void Subscribe()
     {
-        CoreGameSignals.Instance.onPlayerUpgradeHp+= GameUpgrade;
-        CoreGameSignals.Instance.onPlayerUpgradeSpeed += onPlayerUpgradeSpeed;
+        //CoreGameSignals.Instance.onPlayerUpgradeHp+= GameUpgrade;
+       // CoreGameSignals.Instance.onPlayerUpgradeSpeed += onPlayerUpgradeSpeed;
     }
 
     private void onPlayerUpgradeSpeed(float arg0)
@@ -63,8 +63,8 @@ public class DataManager : MonoBehaviour
 
     void UnSubscribe()
     {
-        CoreGameSignals.Instance.onPlayerUpgradeHp-= GameUpgrade;
-        CoreGameSignals.Instance.onPlayerUpgradeSpeed -= onPlayerUpgradeSpeed;
+      //  CoreGameSignals.Instance.onPlayerUpgradeHp-= GameUpgrade;
+      //  CoreGameSignals.Instance.onPlayerUpgradeSpeed -= onPlayerUpgradeSpeed;
     }
 
 

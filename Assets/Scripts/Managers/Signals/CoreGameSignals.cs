@@ -24,19 +24,18 @@ void Awake()
 
 
 public UnityAction<byte> onLevelInitialized=delegate{};
-//public UnityAction onGameStart=delegate{};
 public UnityAction onGamePause=delegate{};
 public UnityAction onGameResume=delegate{};
 public UnityAction onLevelRestart=delegate{};
 public UnityAction onLevelFailed=delegate{};
 
+//public UnityAction<int> onPlayerUpgradeHp=delegate{};
+//public UnityAction<float> onPlayerUpgradeSpeed=delegate{};
 
 
 
 
-public UnityAction<int> onPlayerUpgradeHp=delegate{};
-public UnityAction<float> onPlayerUpgradeSpeed=delegate{};
-public UnityAction<float> onPlayerUpgradeWeapon=delegate{};
+
 
 
 

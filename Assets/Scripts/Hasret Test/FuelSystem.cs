@@ -39,7 +39,7 @@ public class FuelSystem : MonoBehaviour
         Debug.Log("total harcanan: " + (fuelConsumptionRate + (0.2f * rb.velocity.magnitude)) * Time.deltaTime);
         currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel); // Yakıt miktarını 0 ile maksimum arasında sınırlı tut
         
-            CoreUISignals.Instance.onGameFuelPanelUpdate?.Invoke(currentFuel);
+            CoreUISignals.Instance.onGameFuelTextUpdate?.Invoke(currentFuel);
         
     }
 

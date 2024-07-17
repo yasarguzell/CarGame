@@ -12,7 +12,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject gamePanel;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject failPanel;
-    [SerializeField] GameObject upgradePanel;
     [SerializeField] TMP_Text kmText;
     [SerializeField] TMP_Text fuelText;
     [SerializeField] Image fuelImage;
@@ -41,9 +40,8 @@ public class UIManager : MonoBehaviour
         CoreUISignals.Instance.onStartPanel += onStartPanel;
         CoreUISignals.Instance.onPausePanel += onPausePanel;
         CoreUISignals.Instance.onLevelFailedPanel += onLevelFailedPanel;
-        CoreUISignals.Instance.onUpgradePanel += onUpgradePanel;
         CoreUISignals.Instance.onGameScoreTextUpdate += onGameScoreUpdate;
-        CoreUISignals.Instance.onGameFuelPanelUpdate += onGameFuelPanelUpdate;
+        CoreUISignals.Instance.onGameFuelTextUpdate += onGameFuelPanelUpdate;
         CoreUISignals.Instance.onGameSetHpBarUpdate += onGameSetHpBarUpdate;
         CoreUISignals.Instance.onGameSetHpBarRestartUpdate += onGameSetHpBarRestartUpdate;
 
@@ -70,7 +68,7 @@ public class UIManager : MonoBehaviour
         _fuelInitialScore = value;
         fuelText.text = "Fuel: " + (int)_fuelInitialScore;//.ToString();
 
-        fuelImage.fillAmount = _fuelInitialScore / 100;
+        fuelImage.fillAmount = _fuelInitialScore / 200;
     }
 
 
@@ -80,11 +78,7 @@ public class UIManager : MonoBehaviour
         kmText.text = "Score: " + (int)_kmInitialScore;//.ToString();
     }
 
-    private void onUpgradePanel()
-    {
-        CoreGameSignals.Instance.onGamePause?.Invoke();
-        upgradePanel.gameObject.SetActive(true);
-    }
+
 
     private void onLevelFailedPanel()
     {
@@ -146,37 +140,9 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void GameUpgrade()
-    {
-        CoreUISignals.Instance.onUpgradePanel?.Invoke();
-        CoreGameSignals.Instance.onGamePause?.Invoke();
-    }
 
-    public void GameUpgradeOne()
-    {
-        CoreGameSignals.Instance.onPlayerUpgradeHp?.Invoke(15); // player data upgrade HP
-        CoreGameSignals.Instance.onGameResume?.Invoke();
 
-        upgradePanel.SetActive(false);
-
-    }
-    public void GameUpgradeTwo()
-    {
-        CoreGameSignals.Instance.onPlayerUpgradeSpeed?.Invoke(5f); // player data upgrade maxSpeed
-        CoreGameSignals.Instance.onGameResume?.Invoke();
-
-        upgradePanel.SetActive(false);
-
-    }
-
-    public void GameUpgradeThree()
-    {
-        CoreGameSignals.Instance.onPlayerUpgradeWeapon?.Invoke(1.5f); // player data upgrade 
-        CoreGameSignals.Instance.onGameResume?.Invoke();
-
-        upgradePanel.SetActive(false);
-
-    }
+ 
     public void GameQuit()
     {
         Application.Quit();
@@ -193,9 +159,8 @@ public class UIManager : MonoBehaviour
         CoreUISignals.Instance.onStartPanel -= onStartPanel;
         CoreUISignals.Instance.onPausePanel -= onPausePanel;
         CoreUISignals.Instance.onLevelFailedPanel -= onLevelFailedPanel;
-        CoreUISignals.Instance.onUpgradePanel -= onUpgradePanel;
         CoreUISignals.Instance.onGameScoreTextUpdate -= onGameScoreUpdate;
-        CoreUISignals.Instance.onGameFuelPanelUpdate -= onGameFuelPanelUpdate;
+        CoreUISignals.Instance.onGameFuelTextUpdate -= onGameFuelPanelUpdate;
     }
 
 }

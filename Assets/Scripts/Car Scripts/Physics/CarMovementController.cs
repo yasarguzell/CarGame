@@ -48,11 +48,7 @@ public class CarMovementController : MonoBehaviour
         frw
     }
 
-    void Start()
-    {
-        CoreGameSignals.Instance.onPlayerUpgradeSpeed += OnPlayerSpeedUpgrade;
-    }
-
+   
     private void OnPlayerSpeedUpgrade(float value)
     {
         _maxSpeed += value;

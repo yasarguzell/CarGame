@@ -11,12 +11,12 @@ public UnityAction onStartPanel=delegate{};
 public UnityAction onPausePanel=delegate{};
 public UnityAction onLevelFailedPanel=delegate{};
 public UnityAction onLevelRestartPanel=delegate{};
-public UnityAction onUpgradePanel=delegate{};
+
 
 public UnityAction<byte> onGameSetHpBarUpdate=delegate{};
 public UnityAction<byte> onGameSetHpBarRestartUpdate=delegate{};
 public UnityAction<float> onGameScoreTextUpdate=delegate{};
-public UnityAction<float> onGameFuelPanelUpdate=delegate{};
+public UnityAction<float> onGameFuelTextUpdate=delegate{};
 
 
 

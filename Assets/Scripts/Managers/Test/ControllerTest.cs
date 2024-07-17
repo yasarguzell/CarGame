@@ -23,7 +23,7 @@ void Update()
     if(other.gameObject.tag == "Enemy")
     {
       //  CoreGameSignals.Instance.onLevelFailed?.Invoke();
-        CoreUISignals.Instance.onUpgradePanel?.Invoke();
+        
         
     }
   }

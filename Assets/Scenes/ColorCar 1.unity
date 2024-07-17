@@ -14583,7 +14583,7 @@ PrefabInstance:
     - target: {fileID: 4562098830767597722, guid: 7bb3b1159dc68234c9b9862d0234f5c3, type: 3}
       propertyPath: upgradePanel
       value: 
-      objectReference: {fileID: 1152466371}
+      objectReference: {fileID: 0}
     - target: {fileID: 4562098830767597722, guid: 7bb3b1159dc68234c9b9862d0234f5c3, type: 3}
       propertyPath: hpImages.Array.data[0]
       value: 
@@ -35088,6 +35088,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8653447556293361087, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8685855033926612219, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4597935
@@ -35103,6 +35107,7 @@ PrefabInstance:
     - {fileID: 3944316449462858520, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
     - {fileID: 6391408556823855686, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
     - {fileID: 272605753308597032, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
+    - {fileID: 8653447556293361087, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7582296007793812247, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
       insertIndex: -1
@@ -35765,11 +35770,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4926261862933284, guid: 8e8c31f8740134d4086fec064d4245d2, type: 3}
   m_PrefabInstance: {fileID: 1150323948}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1152466371 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8653447556293361087, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
-  m_PrefabInstance: {fileID: 1129751258}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1166382241
 PrefabInstance:

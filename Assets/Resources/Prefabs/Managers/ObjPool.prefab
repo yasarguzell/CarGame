@@ -47,8 +47,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - tag: Road1
-    prefab: {fileID: 5154400580410836273, guid: bf95bc1a352d8f24abf569581b45ba6f, type: 3}
-    size: 2
+    prefab: {fileID: 4040081126297155366, guid: 8a6dcade883ba3440bced31529e9de34, type: 3}
+    size: 1
+  - tag: Road2
+    prefab: {fileID: 8529711323233364644, guid: e5323bca05daf2841882348ccb4cce62, type: 3}
+    size: 1
+  - tag: Road3
+    prefab: {fileID: 167102808798299397, guid: a28b9dde5fb19b14094370f8ff9e7139, type: 3}
+    size: 1
+  - tag: Road4
+    prefab: {fileID: 3722721544283820677, guid: f63092a5b4d82f1428b4dc072ec72b19, type: 3}
+    size: 1
+  - tag: Road5
+    prefab: {fileID: 6841267772825477563, guid: be1a1ea666de9a44f8c558c83ec3bf4d, type: 3}
+    size: 1
 --- !u!114 &5350509717505493563
 MonoBehaviour:
   m_ObjectHideFlags: 0

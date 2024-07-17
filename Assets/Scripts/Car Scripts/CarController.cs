@@ -13,6 +13,10 @@ namespace CarGame.Car
         {
             _health = _initialHealth;
         }
+        void Update()
+        {
+            Debug.Log("Car Health: " + _health);
+        }
 
         public void OnCollisionEnter(Collision other)
         {

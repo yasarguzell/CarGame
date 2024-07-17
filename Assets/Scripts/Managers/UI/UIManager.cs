@@ -59,7 +59,7 @@ public class UIManager : MonoBehaviour
     {
         if (stageValue < hpImages.Count)
         {
-            hpImages[stageValue].DOColor(Color.white, 0.5f);
+            hpImages[stageValue].DOColor(Color.green, 0.5f);
             Debug.Log($"Hp: {stageValue}");
         }
     }
@@ -97,6 +97,19 @@ public class UIManager : MonoBehaviour
         colorCar.SetActive(false);
 
     }
+    public void GameMainMenu()
+    {
+        CoreGameSignals.Instance.onLevelRestart?.Invoke();
+        
+
+
+        menuPanel.SetActive(true);
+        gamePanel.SetActive(false);
+        colorCar.SetActive(true);
+        pausePanel.gameObject.SetActive(false);
+
+
+    }
 
     private void LevelRestart()
     {
@@ -113,6 +126,7 @@ public class UIManager : MonoBehaviour
     {
         CoreGameSignals.Instance.onLevelInitialized?.Invoke(currentLevel);
         CoreUISignals.Instance.onStartPanel?.Invoke(); // close panel
+        
     }
 
     public void GamePause()
@@ -138,6 +152,7 @@ public class UIManager : MonoBehaviour
         pausePanel.gameObject.SetActive(false);
         failPanel.SetActive(false);
     }
+
 
 
 

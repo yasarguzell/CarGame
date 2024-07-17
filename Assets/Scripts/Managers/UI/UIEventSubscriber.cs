@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public enum UIEventSubscriptionTypes
 {
-    Play, Quit, Pause, Resume, Restart, FailTest, UpgradeTest, Upgrade1, Upgrade2, Upgrade3,Test
+    Play, Quit, Pause, Resume, Restart,MainMenu
 }
 public class UIEventSubscriber : MonoBehaviour
 {
@@ -50,6 +50,9 @@ public class UIEventSubscriber : MonoBehaviour
             case UIEventSubscriptionTypes.Restart:
                 button.onClick.AddListener(_manager.GameRestart);
                 break;
+            case UIEventSubscriptionTypes.MainMenu:
+                   button.onClick.AddListener(_manager.GameMainMenu); 
+                break;
 
 
         }
@@ -73,6 +76,9 @@ public class UIEventSubscriber : MonoBehaviour
                 break;
             case UIEventSubscriptionTypes.Restart:
                 button.onClick.RemoveListener(_manager.GameRestart);
+                break;
+            case UIEventSubscriptionTypes.MainMenu:
+                button.onClick.RemoveListener(_manager.GameMainMenu);
                 break;
 
         }

@@ -56,6 +56,7 @@ public class LevelManager : MonoBehaviour
 
     private void OnLevelInitialized(byte _levelIndex)
     {
+        Time.timeScale = 1;
         Debug.Log($"Level load");
         level = Instantiate(Resources.Load<GameObject>($"Prefabs/LevelPrefabs/level {_levelIndex}"));
     }

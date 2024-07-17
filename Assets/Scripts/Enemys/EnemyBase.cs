@@ -115,10 +115,12 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
     {
         if (!isDead)
         {
+            print("Die()");
             agent.isStopped = true;
             agent.enabled = false;
             anim.SetTrigger(ANIM_DIE_TRIGGER_NAME);
             isDead = true;
+            this.gameObject.GetComponent<Collider>().isTrigger = true;
 
         }
 
@@ -138,8 +140,8 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
     {
         if(other.gameObject.tag == "Player")
         {
-            Die();
-            other.GetComponent<CarController>().TakeDamage(1);
+            //Die();
+            //other.GetComponent<CarController>().TakeDamage(1);
         }
     }
 

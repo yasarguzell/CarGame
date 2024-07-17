@@ -12,7 +12,7 @@ public class ShooterEnemy : EnemyBase
     public override void Start()
     {
         base.Start();
-
+        _projectilePool=FindFirstObjectByType<ObjectPool>();
 
     }
     public override void Update()

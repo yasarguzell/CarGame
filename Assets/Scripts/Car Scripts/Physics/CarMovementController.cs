@@ -7,7 +7,7 @@ public class CarMovementController : MonoBehaviour
     [Header("Car Settings SO")]
     [SerializeField] private CarPhysicsSO _carPhysics;
     [Header("Current Car Speed - Readonly")]
-    [SerializeField] private float _velocity;
+    /*[SerializeField]*/ public float _velocity;
 
     [Header("Acceleration Settings")]
     [SerializeField] private float _accelerationForce;

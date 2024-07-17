@@ -8,18 +8,18 @@ public class DamageTrigger : MonoBehaviour
 {
     [SerializeField] int damage = 15;
     [SerializeField] AudioSource meleeSource;
+    private ZombileShooterProjectile storedProjectile;
     private void OnTriggerEnter(Collider other)
     {
-        //print("!!! Gerçek araç gelince incele");
         CarController controller = other.GetComponentInParent<CarController>();
         if (controller != null)
         {
-            controller.TakeDamage(damage);
-
+            //controller.TakeDamage(damage);
             ZombileShooterProjectile projectile = gameObject.GetComponent<ZombileShooterProjectile>();
             if (projectile != null)
             {//Shooter
-               StartCoroutine( returnToPool(projectile));
+                storedProjectile = projectile;
+                Invoke(nameof(CallReturnToPool), 5);
             }
             else
             {//Melee
@@ -30,13 +30,16 @@ public class DamageTrigger : MonoBehaviour
         }
 
     }
-    IEnumerator returnToPool(ZombileShooterProjectile projectile)
+
+    void CallReturnToPool()
     {
-        yield return new WaitForSeconds(2);
-        this.transform.DOScale(new Vector3(0, 0, 0), 1).OnComplete(() =>
-        {
-            projectile.ReturnToPool();
-        });
-       
+        returnToPool(storedProjectile);
+    }
+
+    void returnToPool(ZombileShooterProjectile projectile)
+    {
+      
+        projectile.ReturnToPool();
+      
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - Spell_Nitro
   - DamagePMeele
   - DamagePShooting
+  - EnemyParent
   layers:
   - Default
   - TransparentFX

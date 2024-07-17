@@ -18,7 +18,6 @@ public class WeaponTargetLock : Weapon
     [SerializeField] List<Component> componentList = new List<Component>();
     [Space]
     [Header("Track Properties")]
-    [SerializeField] Transform targetsParent;
     [SerializeField] float rotationSpeed = 1f;
     [SerializeField][Tooltip("How much closer the new target cannidate neets to be for target change.")] float differenceThreshold = 1f;
     [SerializeField] public Vector3 trackOffset;
@@ -26,13 +25,12 @@ public class WeaponTargetLock : Weapon
     //
 
     private Vector3 startLocalDir;
+    private GameObject[] targetParentArray;
+    Transform targetsParent;
 
     private void Start()
     {
-        if (!targetsParent)
-        {
-            targetsParent = GameObject.Find("Enemies").transform;
-        }
+        targetParentArray = GameObject.FindGameObjectsWithTag("EnemyParent");
 
         startLocalDir = this.transform.InverseTransformDirection(this.transform.forward);
     }
@@ -70,37 +68,42 @@ public class WeaponTargetLock : Weapon
 
     void FindClosestTrackTarget()
     {
-        for (int i = 0; i < targetsParent.childCount; i++)
+        for (int k = 0; k < targetParentArray.Length; k++)
         {
-            Transform tempChild = targetsParent.GetChild(i).GetChild(0);
+            targetsParent = targetParentArray[k].transform;
 
-            EnemyBase tempEnemyBase = tempChild.GetComponent<EnemyBase>();
-            float testDistance = Vector3.Distance(this.transform.position, tempChild.position);
-            bool isTempViable = tempEnemyBase & tempEnemyBase.GetCurrentHealth() > 0f & testDistance < trackLimit;
-
-            if (targetTransform == null)
+            for (int i = 0; i < targetsParent.childCount; i++)
             {
-                targetTransform = tempChild;
-            }
+                Transform tempChild = targetsParent.GetChild(i).GetChild(0);
 
-            EnemyBase targetEnemyBase = targetTransform.GetComponent<EnemyBase>();
-            float currentDistance = Vector3.Distance(this.transform.position, targetTransform.position);
-            bool isTargetViable = targetEnemyBase & targetEnemyBase.GetCurrentHealth() > 0f & currentDistance < trackLimit;
+                EnemyBase tempEnemyBase = tempChild.GetComponent<EnemyBase>();
+                float testDistance = Vector3.Distance(this.transform.position, tempChild.position);
+                bool isTempViable = tempEnemyBase & tempEnemyBase.GetCurrentHealth() > 0f & testDistance < trackLimit;
 
-            if (isTargetViable)
-            {
-                if (currentDistance > testDistance + differenceThreshold & isTempViable)
+                if (targetTransform == null)
                 {
                     targetTransform = tempChild;
                 }
-            }
-            else if (isTempViable)
-            {
-                targetTransform = tempChild;
-            }
-            else
-            {
-                targetTransform = null;
+
+                EnemyBase targetEnemyBase = targetTransform.GetComponent<EnemyBase>();
+                float currentDistance = Vector3.Distance(this.transform.position, targetTransform.position);
+                bool isTargetViable = targetEnemyBase & targetEnemyBase.GetCurrentHealth() > 0f & currentDistance < trackLimit;
+
+                if (isTargetViable)
+                {
+                    if (currentDistance > testDistance + differenceThreshold & isTempViable)
+                    {
+                        targetTransform = tempChild;
+                    }
+                }
+                else if (isTempViable)
+                {
+                    targetTransform = tempChild;
+                }
+                else
+                {
+                    targetTransform = null;
+                }
             }
         }
     }

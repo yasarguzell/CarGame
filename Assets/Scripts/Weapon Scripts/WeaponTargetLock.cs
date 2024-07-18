@@ -68,6 +68,8 @@ public class WeaponTargetLock : Weapon
 
     void FindClosestTrackTarget()
     {
+        targetParentArray = GameObject.FindGameObjectsWithTag("EnemyParent");
+
         for (int k = 0; k < targetParentArray.Length; k++)
         {
             targetsParent = targetParentArray[k].transform;

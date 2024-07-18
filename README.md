@@ -28,6 +28,8 @@
 ## TEMA
 Oyun teması, zombi kıyametinde hayatta kalma ve kaynak taşıma üzerine kurulu. Oyuncular, zombilerle dolu tehlikeli bir dünyada hayatta kalmak ve diğer kamplar arasında güvenli bir şekilde malzeme taşımak için mücadele ediyor. Bu süreçte özel bir araç kullanarak zombilerle savaşmak ve malzemeleri hasar görmeden teslim etmek önemli. Oyuncular, ilerledikçe araçlarını güçlendirip yeni silahlar bulabilirler. Genel amaç, aracın can barını sıfırlamadan A noktasından B noktasına ulaşmak ve bu süre zarfında mümkün olduğunca çok zombi öldürüp ilerleyerek yüksek puan elde etmektir.
 
+<img width="455" height="325" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/CarExamples.jpg">
+
 ## HİKAYE
 2089 yılında, sanayi kirliliğiyle harabeye dönen dünyada Ashmore Kalesi'ndeki bir patlama sonucu yayılan kırmızımsı gaz, Brainflux adı verilen bir veba oluşturdu ve ölenleri zombilere dönüştürdü. Hayatta kalanlar, buharla çalışan teknolojilere ve Simya Motoruna güvenerek güçlendirilmiş mobil topluluklarda yaşam mücadelesi veriyor. Iron Claw gibi mobil şehirler, zombi istilası altındaki bölgelerden geçen tehlikeli ticaret yollarıyla birbirine bağlı. Yalnızca en iyi Simya Motoruna sahip kurye arabaları bu yolları güvenle geçerek malzeme taşıyabiliyor. Simya Motoru, zombilerin enerji seviyelerini kullanarak etkin hale geldi ve birçok hayat kurtardı, bu nedenle hayatta kalanlar için hayati önem taşıyor.
 
@@ -36,14 +38,22 @@ Oyun teması, zombi kıyametinde hayatta kalma ve kaynak taşıma üzerine kurul
 ### Araba Kullanma
 Zombi istilası altındaki yollarda, araba sabit bir hızla ilerlerken, aracın gideceği yön joystick ile kontrol ediliyor. Bu sayede, yollarda manevra yaparak engellerden kaçınacak ve hedefe güvenli bir şekilde ulaşılabilecek.
 
+<img width="572" height="324" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/MainScreen.gif">
+
 ### Zombi Öldürme
 Arabanın üzerinde yer alan silah slotlarına eklenen otomatik çalışan ve nişan alan silahlar, yakındaki hedefleri öncelikli olarak belirleyip zombileri öldürmek için kullanılıyor. Bu silahları stratejik olarak yerleştirmek zombilere karşı etkili bir savunma sağlayabilir.
+
+<img width="572" height="324" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/Killing Zombies.gif">
 
 ### Silah Toplama
 Oyun içerisinde farklı silahları toplayarak bunlara erişim sağlayabilecek. Toplanan silahları araçta bulunan slotlara eklemek arabanın savunma kapasitesini artırabilir.
 
+<img width="572" height="324" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/gun_pickingup.gif">
+
 ### Güçlendirme Seçenekleri
 Harita üzerinde belirli noktalarda bulunan soru işaretlerinden geçerek, araç ve silah özelliklerini geliştirebilir. Bu yükseltmeler, hayatta kalma şansını artırarak zombi istilasına karşı daha güçlü ve dayanıklı bir araç oluşturmasına yardımcı olacak.
+
+<img width="572" height="324" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/upgrading.png">
 
 ### Sonsuz Harita
 Kurtuluşa giden yol aslında yok.:)

@@ -59,7 +59,7 @@ public class UIManager : MonoBehaviour
         for (int i = 1; i <= hpImages.Count; i++)
         {
             if (i <= stageValue)
-                hpImages[i-1].DOColor(Color.white, 0.1f);
+                hpImages[i-1].DOColor(Color.red, 0.1f);
             else
                 hpImages[i-1].DOColor(Color.green, 0.1f);
         }

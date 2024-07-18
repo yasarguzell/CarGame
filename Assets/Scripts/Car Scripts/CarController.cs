@@ -115,20 +115,13 @@ namespace CarGame.Car
 
         public void CheckHealth()
         {
-            //if (_health > 0)
-            //return;
             if (_health <= 0)
-            {
-
-                CoreGameSignals.Instance.onLevelFailed?.Invoke();
-            }
-            Die();
-
+                Die();
         }
+        
         public void Die()
         {
-            print("Dead");
-            //Die
+            CoreGameSignals.Instance.onLevelFailed?.Invoke();
         }
 
         private IEnumerator ScoreUpdate()

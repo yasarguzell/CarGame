@@ -56,10 +56,12 @@ public class UIManager : MonoBehaviour
 
     private void onGameSetHpBarUpdate(byte stageValue)
     {
-        if (stageValue < hpImages.Count)
+        for (int i = 1; i <= hpImages.Count; i++)
         {
-            hpImages[stageValue].DOColor(Color.green, 0.5f);
-            Debug.Log($"Hp: {stageValue}");
+            if (i <= stageValue)
+                hpImages[i-1].DOColor(Color.white, 0.1f);
+            else
+                hpImages[i-1].DOColor(Color.green, 0.1f);
         }
     }
     private void onGameFuelPanelUpdate(float value)

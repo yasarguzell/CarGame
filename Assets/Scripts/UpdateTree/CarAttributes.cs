@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using CarGame.Car;
 using UnityEngine;
 
 public class CarAttributes : MonoBehaviour
 {
     private CarMovementController _carMovementController;
+    private CarController _carController;
 
     public List<int> mountedGuns = new List<int>();
     public List<Transform> gunPositions = new List<Transform>();
@@ -22,7 +24,7 @@ public class CarAttributes : MonoBehaviour
     public int HP
     {
         get { return hps[hpIndex]; }
-        set { if (hpIndex < hps.Length - 1) { hpIndex++; } }
+        set { if (hpIndex < hps.Length - 1) { _carController.IncreaseHealth(); } }
     }
 
     private int[] defenses = new int[] { 50, 55, 60 };
@@ -36,6 +38,7 @@ public class CarAttributes : MonoBehaviour
     private void Awake()
     {
         _carMovementController = GetComponent<CarMovementController>();
+        _carController = GetComponent<CarController>();
     }
 
 

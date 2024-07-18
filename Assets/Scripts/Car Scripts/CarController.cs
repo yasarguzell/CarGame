@@ -14,7 +14,9 @@ namespace CarGame.Car
 
         private Rigidbody _rb;
         private Coroutine _scoreUpdate;
-        private int _health;
+        [SerializeField] private int _health;
+
+        public int Health { get { return _health; } }
 
         private void Awake()
         {
@@ -70,7 +72,13 @@ namespace CarGame.Car
 
         private void DecreaseHealth()
         {
+            CoreUISignals.Instance.onGameSetHpBarUpdate?.Invoke((byte)(_health - 1));
             TakeDamage(1);
+        }
+
+        public void IncreaseHealth()
+        {
+            _health++;
             CoreUISignals.Instance.onGameSetHpBarUpdate?.Invoke((byte)_health);
         }
 
@@ -107,9 +115,9 @@ namespace CarGame.Car
 
         public void CheckHealth()
         {
-            if (_health > 0)
-                return;
-            if (_health == -1)
+            //if (_health > 0)
+            //return;
+            if (_health <= 0)
             {
 
                 CoreGameSignals.Instance.onLevelFailed?.Invoke();

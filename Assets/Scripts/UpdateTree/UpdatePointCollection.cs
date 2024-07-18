@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CarGame.Car;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class UpdatePointCollection : MonoBehaviour
     public GameObject gunUpdatePanel;
     public GameObject gunSlotPanel;
 
+    public Button healthButtonCarUpdatePanel;
+
     public CarAttributes carAttributes;
     public GunAttributes gunAttributes;
 
@@ -19,8 +22,11 @@ public class UpdatePointCollection : MonoBehaviour
     public int slotLimit;
     public int weaponIndex;
 
+    private CarController carController;
+
     private void Awake()
     {
+        carController = GetComponent<CarController>();
         carAttributes = GetComponent<CarAttributes>();
         slotLimit = carAttributes.gunPositions.Count;
     }
@@ -30,10 +36,11 @@ public class UpdatePointCollection : MonoBehaviour
         if (other.tag == "UpdatePoint")
         {
             other.gameObject.SetActive(false);
+            healthButtonCarUpdatePanel.interactable = carController.Health < 3;
             carUpdatePanel.SetActive(true);
             CoreGameSignals.Instance.onGamePause?.Invoke();
         }
-        if(other.tag == "CollectibleWeapon")
+        if (other.tag == "CollectibleWeapon")
         {
             other.gameObject.SetActive(false);
             weaponIndex = other.GetComponent<GunPoint>().weaponType;
@@ -43,9 +50,9 @@ public class UpdatePointCollection : MonoBehaviour
                 CoreGameSignals.Instance.onGamePause?.Invoke();
                 gunAttributes = weaponObjects[weaponIndex].GetComponent<GunAttributes>();
             }
-            else 
+            else
             {
-                if(slotLimit == carAttributes.mountedGuns.Count)
+                if (slotLimit == carAttributes.mountedGuns.Count)
                 {
                     foreach (Button button in gunSlotPanel.GetComponentsInChildren<Button>())
                     {

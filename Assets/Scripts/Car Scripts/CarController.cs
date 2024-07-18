@@ -37,11 +37,6 @@ namespace CarGame.Car
             CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
         }
 
-        void Update()
-        {
-            Debug.Log("Car Health: " + _health);
-        }
-
         public void OnCollisionEnter(Collision other)
         {
             if (!other.gameObject.CompareTag("Ground") && _isDamagable)

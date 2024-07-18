@@ -13,7 +13,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject failPanel;
     [SerializeField] TMP_Text kmText;
-    [SerializeField] TMP_Text fuelText;
     [SerializeField] Image fuelImage;
 
     [SerializeField] GameObject colorCar;
@@ -66,8 +65,6 @@ public class UIManager : MonoBehaviour
     private void onGameFuelPanelUpdate(float value)
     {
         _fuelInitialScore = value;
-        fuelText.text = "Fuel: " + (int)_fuelInitialScore;//.ToString();
-
         fuelImage.fillAmount = _fuelInitialScore / 300;
     }
 

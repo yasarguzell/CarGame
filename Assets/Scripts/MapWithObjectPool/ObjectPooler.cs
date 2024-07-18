@@ -16,21 +16,21 @@ public class ObjectPooler : MonoBehaviour
 
     #endregion
 
-    #region Instance
-    public static ObjectPooler Instance;
+    //#region Instance
+    //public static ObjectPooler Instance;
 
-    void Awake()
-    {
-        if(Instance == null) 
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-    #endregion
+    //void Awake()
+    //{
+    //    if(Instance == null) 
+    //    {
+    //        Instance = this;
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
+    //#endregion
 
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary = new Dictionary<string, Queue<GameObject>>();
@@ -46,22 +46,25 @@ public class ObjectPooler : MonoBehaviour
                 GameObject obj = Instantiate(pool.prefab);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
+                objectsStart.Add(obj);
             }
 
             poolDictionary.Add(pool.tag, objectPool);
+            
         }
         CoreGameSignals.Instance.onLevelRestart += OnLevelRestart;
         // ObjectSpawner.instance.SpawnGround();
     }
     List<GameObject> objects = new List<GameObject>();
+    List<GameObject> objectsStart = new List<GameObject>();
 
     private void OnLevelRestart()
     {
-        for (int i = 0;i < objects.Count; i++)
+        while(objectsStart.Count > 0)
         {
-            objects[i]?.SetActive(true);
+            Destroy(objectsStart[objectsStart.Count - 1]);
+            objectsStart.Remove(objectsStart[objectsStart.Count - 1]);
         }
-        objects.Clear();
     }
 
 

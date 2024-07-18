@@ -8,7 +8,8 @@ public class MoveComponent : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            ObjectSpawner.instance.SpawnGround();
+            ObjectSpawner objectS = FindObjectOfType<ObjectSpawner>();
+            objectS.SpawnGround();
             gameObject.SetActive(false);
             Debug.Log($"Player spawned");
 

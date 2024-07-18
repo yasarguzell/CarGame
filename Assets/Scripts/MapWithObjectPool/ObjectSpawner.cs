@@ -7,12 +7,8 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] private float groundSpawnDistance = 50f;
     public Transform playerTransform;
     public int level_index = 1;
-    public static ObjectSpawner instance;
+    public ObjectPooler objectSpawner ;
 
-    void Awake()
-    {
-        instance = this;
-    }
     void Start()
     {
         CoreGameSignals.Instance.onLevelRestart += OnLevelRestart;
@@ -29,7 +25,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         anotherPosition += groundSpawnDistance;
         Vector3 spawnPosition = new Vector3(0, 0, playerTransform.position.z + anotherPosition);
-        ObjectPooler.Instance.SpawnFromPool("Road" + level_index, spawnPosition, Quaternion.identity);
+        objectSpawner.SpawnFromPool("Road" + level_index, spawnPosition, Quaternion.identity);
 
         if (level_index != 5)
         {

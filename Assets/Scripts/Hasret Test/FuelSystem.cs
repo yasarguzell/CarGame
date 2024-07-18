@@ -26,6 +26,7 @@ public class FuelSystem : MonoBehaviour
         else if (currentFuel <= 0)
         {
             rb.velocity = Vector3.zero; // Yakıt bitince aracı durdur
+            CoreGameSignals.Instance.onLevelFailed?.Invoke();
         }
 
         UpdateFuelUI(); // Yakıt miktarını UI'da güncelle
@@ -33,14 +34,14 @@ public class FuelSystem : MonoBehaviour
 
     void ConsumeFuel()
     {
-        currentFuel -= (fuelConsumptionRate+(0.5f*rb.velocity.magnitude)) * Time.deltaTime; // Yakıtı tüket
+        currentFuel -= (fuelConsumptionRate + (0.5f * rb.velocity.magnitude)) * Time.deltaTime; // Yakıtı tüket
         //Debug.Log("fuelconsumptionrate: "+fuelConsumptionRate);
         //Debug.Log("if: " + fuelConsumptionRate * Time.deltaTime);
         //Debug.Log("total harcanan: " + (fuelConsumptionRate + (0.2f * rb.velocity.magnitude)) * Time.deltaTime);
         currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel); // Yakıt miktarını 0 ile maksimum arasında sınırlı tut
-        
-            CoreUISignals.Instance.onGameFuelTextUpdate?.Invoke(currentFuel);
-        
+
+        CoreUISignals.Instance.onGameFuelTextUpdate?.Invoke(currentFuel);
+
     }
 
     void UpdateFuelUI()

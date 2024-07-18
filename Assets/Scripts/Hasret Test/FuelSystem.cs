@@ -34,9 +34,9 @@ public class FuelSystem : MonoBehaviour
     void ConsumeFuel()
     {
         currentFuel -= (fuelConsumptionRate+(0.5f*rb.velocity.magnitude)) * Time.deltaTime; // Yakıtı tüket
-        Debug.Log("fuelconsumptionrate: "+fuelConsumptionRate);
-        Debug.Log("if: " + fuelConsumptionRate * Time.deltaTime);
-        Debug.Log("total harcanan: " + (fuelConsumptionRate + (0.2f * rb.velocity.magnitude)) * Time.deltaTime);
+        //Debug.Log("fuelconsumptionrate: "+fuelConsumptionRate);
+        //Debug.Log("if: " + fuelConsumptionRate * Time.deltaTime);
+        //Debug.Log("total harcanan: " + (fuelConsumptionRate + (0.2f * rb.velocity.magnitude)) * Time.deltaTime);
         currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel); // Yakıt miktarını 0 ile maksimum arasında sınırlı tut
         
             CoreUISignals.Instance.onGameFuelTextUpdate?.Invoke(currentFuel);
@@ -60,7 +60,7 @@ public class FuelSystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("FuelTank"))
         {
-            Refuel(300f); // Yakıt ekle (50 birim)
+            Refuel(400f); // Yakıt ekle (50 birim)
             Destroy(collision.gameObject);
         }
     }

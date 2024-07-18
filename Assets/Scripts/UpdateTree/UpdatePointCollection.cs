@@ -110,8 +110,8 @@ public class UpdatePointCollection : MonoBehaviour
         gunObj.transform.parent = carAttributes.transform;
         gunObj.transform.position = carAttributes.gunPositions[slotIndex].position;
         gunObj.SetActive(true);
-        gunSlotPanel.transform.GetChild(slotIndex).GetComponentInChildren<TMP_Text>().text = gunObj.GetComponent<GunAttributes>().weaponType;
-
+        gunSlotPanel.transform.GetChild(slotIndex).GetComponentInChildren<TMP_Text>().text = "";//gunObj.GetComponent<GunAttributes>().weaponType;
+        gunSlotPanel.transform.GetChild(slotIndex).GetComponentInChildren<Image>().sprite = gunObj.GetComponent<GunAttributes>().image;
         foreach (Button button in gunSlotPanel.GetComponentsInChildren<Button>())
         {
             button.interactable = false;

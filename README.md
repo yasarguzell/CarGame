@@ -19,65 +19,44 @@
 * [Seha Bilge ÖZBEK](www.linkedin.com/in/seha-ozbek)
 
 **Sanatçılar:**
-* Elifsu KARAHAN
+* [Elifsu KARAHAN](https://www.linkedin.com/in/elifsu-karahan-8951a031a/)
 
+## TAGS
+#Action, #Racing, #Survival, #Zombie
 
-## Tema
-Oyunun teması hakkında konuşurken bir ekip arkadaşımız Adventure time ile bir fikirde bulundu. hepimiz aynı konuda kararlaştık
-<img src="Readme images/teama.png">
+## TEMA
+Oyun teması, zombi kıyametinde hayatta kalma ve kaynak taşıma üzerine kurulu. Oyuncular, zombilerle dolu tehlikeli bir dünyada hayatta kalmak ve diğer kamplar arasında güvenli bir şekilde malzeme taşımak için mücadele ediyor. Bu süreçte özel bir araç kullanarak zombilerle savaşmak ve malzemeleri hasar görmeden teslim etmek önemli. Oyuncular, ilerledikçe araçlarını güçlendirip yeni silahlar bulabilirler. Genel amaç, aracın can barını sıfırlamadan A noktasından B noktasına ulaşmak ve bu süre zarfında mümkün olduğunca çok zombi öldürüp ilerleyerek yüksek puan elde etmektir.
 
+## HİKAYE
+2089 yılında, sanayi kirliliğiyle harabeye dönen dünyada Ashmore Kalesi'ndeki bir patlama sonucu yayılan kırmızımsı gaz, Brainflux adı verilen bir veba oluşturdu ve ölenleri zombilere dönüştürdü. Hayatta kalanlar, buharla çalışan teknolojilere ve Simya Motoruna güvenerek güçlendirilmiş mobil topluluklarda yaşam mücadelesi veriyor. Iron Claw gibi mobil şehirler, zombi istilası altındaki bölgelerden geçen tehlikeli ticaret yollarıyla birbirine bağlı. Yalnızca en iyi Simya Motoruna sahip kurye arabaları bu yolları güvenle geçerek malzeme taşıyabiliyor. Simya Motoru, zombilerin enerji seviyelerini kullanarak etkin hale geldi ve birçok hayat kurtardı, bu nedenle hayatta kalanlar için hayati önem taşıyor.
 
-## Hikaye
-- Hikaye aşamasında şu fikirleri tartıştık: 
-    * Şeker yaratıkları üreten bir bilim adamının 
-    * Fabrikasından çıkan şeker canavarlarıyla savaşma
-    halkının karnını doyurmak için şeker yaratıkları avlayan bir avcı
+## ÖZELLİKLER
 
-* En son olarak bu fikir bütün takımın içine sindi ve bu hikaye kurgusunda karar kıldık: 
-    - çocukları kaçırılan kahraman cadıya ulaşmak için şeker canavarlarıyla savaşan baba.
+### Araba Kullanma
+Zombi istilası altındaki yollarda, araba sabit bir hızla ilerlerken, aracın gideceği yön joystick ile kontrol ediliyor. Bu sayede, yollarda manevra yaparak engellerden kaçınacak ve hedefe güvenli bir şekilde ulaşılabilecek.
 
-## Mekanikler
-- Enemy Movement
-    * Fallow Algorithm
+### Zombi Öldürme
+Arabanın üzerinde yer alan silah slotlarına eklenen otomatik çalışan ve nişan alan silahlar, yakındaki hedefleri öncelikli olarak belirleyip zombileri öldürmek için kullanılıyor. Bu silahları stratejik olarak yerleştirmek zombilere karşı etkili bir savunma sağlayabilir.
 
-- Player Movement
-    * Joystic
+### Silah Toplama
+Oyun içerisinde farklı silahları toplayarak bunlara erişim sağlayabilecek. Toplanan silahları araçta bulunan slotlara eklemek arabanın savunma kapasitesini artırabilir.
 
-- Enemy Shoot
-    * Collusion damage
+### Güçlendirme Seçenekleri
+Harita üzerinde belirli noktalarda bulunan soru işaretlerinden geçerek, araç ve silah özelliklerini geliştirebilir. Bu yükseltmeler, hayatta kalma şansını artırarak zombi istilasına karşı daha güçlü ve dayanıklı bir araç oluşturmasına yardımcı olacak.
 
-- Player Shoot
-    * Linked with joy
+## SİLAHLAR
+- Shock to Death – Electric Gun
 
-- Enemy Spawn
-    * Out of camera
+- Hell Fire – Fire Gun
 
-- XP
-    * drop from enemies
+- Bomb Shell – Grenade Launcher
 
-- Buff
-    * Linked with joy
+- Black Ox – Heavy Weight Machine Gun
 
-- Score
-    * Player earns points for each second passed, however, the score is multiplied by the Player's level coefficient for each second as the Player's level increases.
+- Midnight Draught – Midweight Machine Gun
 
-## Karakterlerin tasarımı
-- Ana karakter
+- Hit and Run – Missile
 
-    * karakter tasarımı kısmında art ve designer ekibi olarak elinde yay bulunması kararı alındı. Bü yüzden karakterin robin hood vari bir karakter olması fikrini aldık.
+- Double Kill - Shotgun
 
-    * <img width="100" height="40" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/Resources/Prefabs/WeaponPrefabs/WeaponIcons/flamegun.png">
-
-
-
-- Düşmalar
-
-    * Düşman tasarımlarında ise gene art ve design ekibindeki arkadaşlarımız Advanture time temasından esinledikleri için 1. seviye düşman için şeker fikrini, 2.seviye düşman tipi için cupcake fikrini, 3. seviye düşman tipi son tip düşman olacağı için daha güçlü gözükecek bir düşman tipi olmasına karar verdiler.
-
-    * 1. Seviye düşman
-    * 2. Seviye düşman
-    * 3. Seviye düşman
-
-
-## Çevre tasarımları
-## UI tasarımları
+- Painless Death - Submachine Gun

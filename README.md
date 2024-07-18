@@ -1,7 +1,8 @@
-# NextGen Devs 2024 
-# Deadly Drive
+# NEXTGEN DEVS 2024 
+# DEADLY DRIVE 
+<img width="300" height="300" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/CarTransparent.png">
 
-## Takım
+## TAKIM
 **Takım Lideri:**
 * [Yaşar GÜZEL](https://www.linkedin.com/in/yasarguzel/)
 
@@ -46,17 +47,25 @@ Harita üzerinde belirli noktalarda bulunan soru işaretlerinden geçerek, araç
 
 ## SİLAHLAR
 - Shock to Death – Electric Gun
+<img width="100" height="100" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/Electric.png">
 
 - Hell Fire – Fire Gun
+<img width="100" height="100" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/FireGun.png">
 
 - Bomb Shell – Grenade Launcher
+<img width="100" height="100" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/GrenadeLauncher.png">
 
 - Black Ox – Heavy Weight Machine Gun
+<img width="100" height="100" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/HeavyWeightMachineGun.png">
 
 - Midnight Draught – Midweight Machine Gun
+<img width="100" height="100" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/MidWeightMachineGun.png">
 
 - Hit and Run – Missile
+<img width="100" height="100" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/Missile.png">
 
 - Double Kill - Shotgun
+<img width="100" height="100" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/SMG.png">
 
 - Painless Death - Submachine Gun
+<img width="100" height="100" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/Shotgun.png">

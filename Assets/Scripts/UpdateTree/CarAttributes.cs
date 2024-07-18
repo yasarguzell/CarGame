@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class CarAttributes : MonoBehaviour
 {
+    private CarMovementController _carMovementController;
+
     public List<int> mountedGuns = new List<int>();
     public List<Transform> gunPositions = new List<Transform>();
 
-    private float[] speeds = new float[] { 40f, 50f, 60f };
+    private float[] speeds = new float[] { 20f, 23f, 26f };
     public int speedIndex = 0;
-    public float Speed  
+    public float Speed
     {
-        get { return speeds[speedIndex]; }   
-        set { if (speedIndex < speeds.Length - 1) { speedIndex++; } }  
+        get { return speeds[speedIndex]; }
+        set { if (speedIndex < speeds.Length) { _carMovementController.ChangeMaxSpeed(Speed); speedIndex++; } }
     }
 
     private int[] hps = new int[] { 100, 200, 300 };
@@ -29,6 +31,11 @@ public class CarAttributes : MonoBehaviour
     {
         get { return defenses[defenseIndex]; }
         set { if (defenseIndex < defenses.Length - 1) { defenseIndex++; } }
+    }
+
+    private void Awake()
+    {
+        _carMovementController = GetComponent<CarMovementController>();
     }
 
 

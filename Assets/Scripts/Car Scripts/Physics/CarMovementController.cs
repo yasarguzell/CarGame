@@ -55,14 +55,6 @@ public class CarMovementController : MonoBehaviour
         frw
     }
 
-
-    private void OnPlayerSpeedUpgrade(float value)
-    {
-        _maxSpeed += value;
-    }
-
-
-
     private void Awake()
     {
         _transform = transform;
@@ -242,5 +234,10 @@ public class CarMovementController : MonoBehaviour
         _maxSpeed = _carPhysics.MaxSpeed;
         _steeringConst = _carPhysics.SteeringConst;
         TurnSpeedCurve = _carPhysics.TurnSpeedCurve;
+    }
+
+    public void ChangeMaxSpeed(float value)
+    {
+        _maxSpeed = value;
     }
 }

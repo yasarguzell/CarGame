@@ -16,6 +16,9 @@ public class WeaponFire : Weapon
     [Space()]
     [Header("Weapon Sound")]
     [SerializeField] AudioSource audioSource;
+    [Space()]
+    [Header("Weapon Effect")]
+    [SerializeField] Transform fireEffect;
 
     private WeaponTargetLock weaponTargetLock;
     private bool isFireOn = true;
@@ -70,6 +73,11 @@ public class WeaponFire : Weapon
 
     void CheckFire()
     {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
         if (isFireOn)
         {
             bool isOnCooldown = (Time.time - lastFireTime) < (1 / fireRate);
@@ -79,12 +87,14 @@ public class WeaponFire : Weapon
                 Fire();
             }
 
-
             audioSource.volume = Mathf.Lerp(audioSource.volume, startVolume, 0.3f);
+
+            if (fireEffect) fireEffect.gameObject.SetActive(true);
         }
         else
         {
             audioSource.volume = Mathf.Lerp(audioSource.volume, 0f, 0.3f);
+            if (fireEffect) fireEffect.gameObject.SetActive(false);
         }
     }
 }

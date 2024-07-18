@@ -6,6 +6,9 @@ using UnityEngine.AI;
 
 public class MeleeEnemy : EnemyBase
 {
+    [Header("Effect Settings")]
+    [SerializeField] private Transform _hitEffectTransform;
+
     public override void Start()
     {
         base.Start();
@@ -57,6 +60,12 @@ public class MeleeEnemy : EnemyBase
         //Debug.Log("Attacking");
         transform.LookAt(nearestTarget.transform.position);
         anim.SetBool(ANIM_ATTACK_BOOL_NAME, true); //Damage transactions in animation event 
+    }
+
+    public void SpawnEffect()
+    {
+        Transform newEffect = GameObject.Instantiate(_hitEffectTransform, _hitEffectTransform.position, _hitEffectTransform.rotation);
+        newEffect.gameObject.SetActive(true);
     }
 
 }

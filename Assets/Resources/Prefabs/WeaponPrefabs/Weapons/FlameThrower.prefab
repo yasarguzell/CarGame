@@ -313,11 +313,10 @@ MonoBehaviour:
     freeAxis: {x: 0, y: 1, z: 0}
   - weaponComponent: {fileID: 3444910040657810114}
     freeAxis: {x: 1, y: 0, z: 0}
-  targetsParent: {fileID: 0}
   rotationSpeed: 40
   differenceThreshold: 2
   trackOffset: {x: 0, y: 0.7, z: 0}
-  trackLimit: 40
+  trackLimit: 22
 --- !u!114 &1750767426938932414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,6 +339,7 @@ MonoBehaviour:
   directionRandomness: 0.015
   isDirectFire: 1
   audioSource: {fileID: 8634023265811266582}
+  fireEffect: {fileID: 1922292920705610883}
 --- !u!114 &1868467551524382951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +492,10 @@ PrefabInstance:
     - target: {fileID: 1259762591101698, guid: f3016c5abcef33a4a9a7030d610e46cd, type: 3}
       propertyPath: m_Name
       value: FlameThrower_Spray
+      objectReference: {fileID: 0}
+    - target: {fileID: 1259762591101698, guid: f3016c5abcef33a4a9a7030d610e46cd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4846459981974822, guid: f3016c5abcef33a4a9a7030d610e46cd, type: 3}
       propertyPath: m_LocalPosition.x

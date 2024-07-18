@@ -76,6 +76,7 @@ public class WeaponTargetLock : Weapon
 
             for (int i = 0; i < targetsParent.childCount; i++)
             {
+                Debug.Log(targetsParent.childCount + " " + i);
                 Transform tempChild = targetsParent.GetChild(i).GetChild(0);
 
                 EnemyBase tempEnemyBase = tempChild.GetComponent<EnemyBase>();

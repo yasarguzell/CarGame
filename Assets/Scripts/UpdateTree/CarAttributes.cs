@@ -11,7 +11,7 @@ public class CarAttributes : MonoBehaviour
     public List<int> mountedGuns = new List<int>();
     public List<Transform> gunPositions = new List<Transform>();
 
-    private float[] speeds = new float[] { 20f, 23f, 26f };
+    private float[] speeds = new float[] { 30f, 33f, 36f };
     public int speedIndex = 0;
     public float Speed
     {

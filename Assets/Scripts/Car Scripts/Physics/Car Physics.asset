@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Car Physics
   m_EditorClassIdentifier: 
   AccelerationForce: 80000
-  MaxSpeed: 15
+  MaxSpeed: 25
   SteeringConst: 1
   TurnSpeedCurve:
     serializedVersion: 2
@@ -38,7 +38,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 3.1
-      value: 0.04
+      value: 0.03
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -46,10 +46,10 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 100
+      time: 50
       value: 0.02
-      inSlope: -0.00020639834
-      outSlope: -0.00020639834
+      inSlope: -0.00021321961
+      outSlope: -0.00021321961
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

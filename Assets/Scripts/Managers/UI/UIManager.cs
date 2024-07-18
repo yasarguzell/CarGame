@@ -71,11 +71,15 @@ public class UIManager : MonoBehaviour
 
     private void onGameScoreUpdate(float value)
     {
-        _kmInitialScore = value;
+        _kmInitialScore += value;
         kmText.text = "Score: " + (int)_kmInitialScore;//.ToString();
     }
 
-
+    private void ResetScore()
+    {
+        _kmInitialScore = 0;
+        kmText.text = "Score: " + (int)_kmInitialScore;//.ToString();
+    }
 
     private void onLevelFailedPanel()
     {
@@ -97,7 +101,7 @@ public class UIManager : MonoBehaviour
     public void GameMainMenu()
     {
         CoreGameSignals.Instance.onLevelRestart?.Invoke();
-        
+
 
 
         menuPanel.SetActive(true);
@@ -110,6 +114,7 @@ public class UIManager : MonoBehaviour
 
     private void LevelRestart()
     {
+        ResetScore();
         CoreUISignals.Instance.onLevelRestartPanel?.Invoke();
     }
 
@@ -123,7 +128,7 @@ public class UIManager : MonoBehaviour
     {
         CoreGameSignals.Instance.onLevelInitialized?.Invoke(currentLevel);
         CoreUISignals.Instance.onStartPanel?.Invoke(); // close panel
-        
+
     }
 
     public void GamePause()
@@ -154,7 +159,7 @@ public class UIManager : MonoBehaviour
 
 
 
- 
+
     public void GameQuit()
     {
         Application.Quit();

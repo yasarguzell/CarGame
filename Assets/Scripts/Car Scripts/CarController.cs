@@ -1,3 +1,4 @@
+using System.Collections;
 using Cinemachine;
 using DG.Tweening;
 using UnityEngine;
@@ -11,13 +12,29 @@ namespace CarGame.Car
         [SerializeField] private bool _isDamagable = true;
         [SerializeField] private CinemachineVirtualCamera _virtualCamera; // Add a reference to the Cinemachine Virtual Camera
 
-
+        private Rigidbody _rb;
+        private Coroutine _scoreUpdate;
         private int _health;
 
         private void Awake()
         {
+            _rb = GetComponent<Rigidbody>();
             _health = _initialHealth;
         }
+
+        private void Start()
+        {
+            OnLevelInitialized(0);
+            CoreGameSignals.Instance.onLevelInitialized += OnLevelInitialized;
+            CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
+        }
+
+        private void OnDisable()
+        {
+            CoreGameSignals.Instance.onLevelInitialized -= OnLevelInitialized;
+            CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
+        }
+
         void Update()
         {
             Debug.Log("Car Health: " + _health);
@@ -39,6 +56,16 @@ namespace CarGame.Car
                 }
             }
 
+        }
+
+        private void OnLevelInitialized(byte a)
+        {
+            _scoreUpdate = StartCoroutine("ScoreUpdate");
+        }
+
+        private void OnLevelFailed()
+        {
+            StopCoroutine(_scoreUpdate);
         }
 
         private void DecreaseHealth()
@@ -94,6 +121,27 @@ namespace CarGame.Car
         {
             print("Dead");
             //Die
+        }
+
+        private IEnumerator ScoreUpdate()
+        {
+            float elapsedTime = 0;
+            CoreUISignals.Instance.onGameScoreTextUpdate?.Invoke((int)0);
+            while (true)
+            {
+                if (Mathf.Abs(_rb.velocity.magnitude) > Mathf.Epsilon)
+                {
+                    elapsedTime += Time.deltaTime;
+                }
+
+                if (elapsedTime >= 5)
+                {
+                    CoreUISignals.Instance.onGameScoreTextUpdate?.Invoke((int)50);
+                    elapsedTime = 0;
+                }
+
+                yield return null;
+            }
         }
     }
 }

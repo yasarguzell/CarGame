@@ -37,10 +37,20 @@ public abstract class EnemyBase : MonoBehaviour, IHealth, IEnemy
     protected bool isAttacking;
     public virtual void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-
-
+    }
+    public void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        agent.enabled = false;
+    }
+    private void OnEnable()
+    {
+        agent.enabled = true;
+    }
+    private void OnDisable()
+    {
+        agent.enabled = false;
     }
     public virtual void Update()
     {

@@ -45,6 +45,9 @@ Oyun içerisinde farklı silahları toplayarak bunlara erişim sağlayabilecek. 
 ### Güçlendirme Seçenekleri
 Harita üzerinde belirli noktalarda bulunan soru işaretlerinden geçerek, araç ve silah özelliklerini geliştirebilir. Bu yükseltmeler, hayatta kalma şansını artırarak zombi istilasına karşı daha güçlü ve dayanıklı bir araç oluşturmasına yardımcı olacak.
 
+### Sonsuz Harita
+Kurtuluşa giden yol aslında yok.:)
+
 ## SİLAHLAR
 - Shock to Death – Electric Gun
 <img width="100" height="100" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/Electric.png">

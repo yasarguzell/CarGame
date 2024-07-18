@@ -1,6 +1,5 @@
-# NEXTGEN DEVS 2024 
 # DEADLY DRIVE 
-<img width="300" height="300" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/CarTransparent.png">
+<img width="810" height="333" src="https://github.com/yasarguzell/CarGame/blob/main/Assets/ReadMe/CarTransparent.png">
 
 ## TAKIM
 **Takım Lideri:**
@@ -22,8 +21,19 @@
 **Sanatçılar:**
 * [Elifsu KARAHAN](https://www.linkedin.com/in/elifsu-karahan-8951a031a/)
 
-## TAGS
+## KAYNAKLAR
+[Drive](https://drive.google.com/drive/folders/1JSrT11BQ-3ySIqz5u4s7Fx5fgxn2ge19)
+
+## GELİŞTİRME SÜRECİ
+- Oyunun Adı: Deadly Drive
+- Takım: Udo Games **NextGen Devs 2024** – Takım 3
+- Proje Süresi: 1 hafta 
+
+## ETİKETLER
 #Action, #Racing, #Survival, #Zombie
+
+## NASIL OYNANIR?
+Karakter bir joystick kullanılarak kontrol edilir ve silahlar otomatik olarak etraftaki zombilere ateş eder.
 
 ## TEMA
 Oyun teması, zombi kıyametinde hayatta kalma ve kaynak taşıma üzerine kurulu. Oyuncular, zombilerle dolu tehlikeli bir dünyada hayatta kalmak ve diğer kamplar arasında güvenli bir şekilde malzeme taşımak için mücadele ediyor. Bu süreçte özel bir araç kullanarak zombilerle savaşmak ve malzemeleri hasar görmeden teslim etmek önemli. Oyuncular, ilerledikçe araçlarını güçlendirip yeni silahlar bulabilirler. Genel amaç, aracın can barını sıfırlamadan A noktasından B noktasına ulaşmak ve bu süre zarfında mümkün olduğunca çok zombi öldürüp ilerleyerek yüksek puan elde etmektir.

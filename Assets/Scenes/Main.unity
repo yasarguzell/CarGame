@@ -1340,6 +1340,7 @@ PrefabInstance:
     - {fileID: 64559434450591382, guid: 39d3f166cb803694ebbcc0a2099c833e, type: 3}
     - {fileID: 64191517709235686, guid: 39d3f166cb803694ebbcc0a2099c833e, type: 3}
     - {fileID: 64091298457878812, guid: 39d3f166cb803694ebbcc0a2099c833e, type: 3}
+    - {fileID: 6817069407862456156, guid: 39d3f166cb803694ebbcc0a2099c833e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -5070,6 +5071,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a74066172cf19cd4bacae3c6600a7217, type: 2}
     m_RemovedComponents:
     - {fileID: 64702451533572480, guid: d4ecf54e1ea1911499271cb18852e93c, type: 3}
+    - {fileID: 4824373564315388953, guid: d4ecf54e1ea1911499271cb18852e93c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7091,6 +7093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 64065546880724688, guid: f31cea37299dd7845b00f150250aa025, type: 3}
+    - {fileID: 6884519915569015967, guid: f31cea37299dd7845b00f150250aa025, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14565,6 +14568,7 @@ PrefabInstance:
     - {fileID: 64654145328627602, guid: 57c43a8966d74654c86c3b11e3d5f850, type: 3}
     - {fileID: 64288957023732574, guid: 57c43a8966d74654c86c3b11e3d5f850, type: 3}
     - {fileID: 64830528800331556, guid: 57c43a8966d74654c86c3b11e3d5f850, type: 3}
+    - {fileID: 8664266437756558449, guid: 57c43a8966d74654c86c3b11e3d5f850, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -15354,6 +15358,10 @@ PrefabInstance:
     - target: {fileID: 4685192623541844176, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 9.699951
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078375779255750602, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 872.2
       objectReference: {fileID: 0}
     - target: {fileID: 6138925728233910242, guid: 7a9aafc0d82411b478b0cbeabebe7547, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

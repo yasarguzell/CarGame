@@ -64,6 +64,7 @@ public class MeleeEnemy : EnemyBase
 
     public void SpawnEffect()
     {
+        _hitEffectTransform = targetsParent;
         Transform newEffect = GameObject.Instantiate(_hitEffectTransform, _hitEffectTransform.position, _hitEffectTransform.rotation);
         newEffect.gameObject.SetActive(true);
     }
